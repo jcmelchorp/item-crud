@@ -1,6 +1,6 @@
 # Item CRUD
 
-This repository contains a template for an Angular 10 application with basic CRUD operations using Redux architecture for State Management and Angular Material, Angular Flex-layout and Bootstrap 4.5 for UI. For backend simulation the application runs simultaneously a local json server.
+This repository contains a template for an Angular 10 application with basic CRUD operations using Redux architecture for State Management and Angular Material and Bootstrap 4.5 for UI components. For backend simulation the application runs simultaneously a local json server.
 
 ## Features of the application
 
@@ -14,7 +14,7 @@ This repository contains a template for an Angular 10 application with basic CRU
 Just clone this repository:
 
 ```bash
-git clone https://github.com/JulioMelchorPinto/work-template.git
+git clone https://github.com/JulioMelchorPinto/item-crud.git
 ```
 
 Then, install dependencies:
