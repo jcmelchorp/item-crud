@@ -1,25 +1,18 @@
 {
   "items": [
     {
-      "id": "a9509960-c479-11ea-8912-33db58df8adf",
-      "itemName": "My first Item",
+      "id": "94e16fe0-c488-11ea-8caa-694674a132c8",
+      "itemName": "My Item 1",
       "isActive": true,
-      "dateCreated": "2020-07-12T19:55:39.894Z",
-      "dateModified": "2020-07-12T21:14:22.641Z"
+      "dateCreated": "2020-07-12T21:42:28.063Z",
+      "dateModified": "2020-07-12T21:43:27.960Z"
     },
     {
-      "id": "c97e5c90-c479-11ea-bae2-a12ff4fde795",
-      "itemName": "Second",
+      "id": "acf1b720-c488-11ea-8caa-694674a132c8",
+      "itemName": "New Item",
       "isActive": true,
-      "dateCreated": "2020-07-12T19:56:33.881Z",
-      "dateModified": "2020-07-12T21:14:15.757Z"
-    },
-    {
-      "id": "a6a951b0-c47a-11ea-9250-e5fd46b9095e",
-      "itemName": "third",
-      "isActive": true,
-      "dateCreated": "2020-07-12T20:02:44.939Z",
-      "dateModified": "2020-07-12T21:07:20.041Z"
+      "dateCreated": "2020-07-12T21:43:08.434Z",
+      "dateModified": "2020-07-12T21:43:27.560Z"
     }
   ]
 }

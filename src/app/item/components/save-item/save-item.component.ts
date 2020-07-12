@@ -1,6 +1,5 @@
 import { NotificationService } from './../../services/notification.service';
 import { Observable } from 'rxjs';
-import { ItemService } from './../../services/item.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { v1 as uuid } from 'uuid';
@@ -62,7 +61,7 @@ export class SaveItemComponent implements OnInit {
       const newItem: Item = {
         id: this.itemForm.get('id').value,
         itemName: this.itemForm.get('itemName').value,
-        isActive: true,
+        isActive: this.itemForm.get('isActive').value,
         dateCreated: this.itemForm.get('dateCreated').value
       };
       if (newItem.id === '') {
@@ -70,13 +69,13 @@ export class SaveItemComponent implements OnInit {
         newItem.dateCreated = new Date(Date.now());
         this.store.dispatch(new itemActions.CreateItem(newItem));
         this.notificationService.showNotification(
-          'Item: "' + newItem.itemName + '" was created at:' + newItem.dateCreated.toString(), null, 10);
+          'Item: "' + newItem.itemName + '" was created', null, 5);
         this.onReset();
       } else {
         newItem.dateModified = new Date(Date.now());
         this.store.dispatch(new itemActions.UpdateItem(newItem));
         this.notificationService.showNotification(
-          'Item: "' + newItem.itemName + '"\n was updated at:' + newItem.dateModified.toString(), null, 10);
+          'Item: "' + newItem.itemName + '" was updated', null, 5);
         this.onReset();
       }
 

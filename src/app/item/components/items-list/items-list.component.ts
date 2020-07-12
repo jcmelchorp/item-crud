@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Item } from '../../models/item.model';
 import { Store, select } from '@ngrx/store';
@@ -7,6 +7,9 @@ import * as fromItem from '../../state/item.reducer';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmItemComponent } from '../confirm-item/confirm-item.component';
 import { NotificationService } from '../../services/notification.service';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTable } from '@angular/material/table';
 
 @Component({
   selector: 'app-items-list',
@@ -38,7 +41,7 @@ export class ItemsListComponent implements OnInit {
     dialogRef.componentInstance.confirmation.subscribe((confirmation: boolean) => {
       if (confirmation) {
         this.store.dispatch(new itemActions.DeleteItem(item.id));
-        this.notificationService.showNotification('Item: "' + item.itemName + '" was deleted', null, 10);
+        this.notificationService.showNotification('Item: "' + item.itemName + '" was deleted', null, 5);
       }
     });
   }
@@ -60,6 +63,6 @@ export class ItemsListComponent implements OnInit {
 
     this.store.dispatch(new itemActions.UpdateItem(newItem));
     this.notificationService.showNotification(
-      'Item: "' + newItem.itemName + '" was ' + [(newItem.isActive) ? 'Activated' : 'Deactivated'], null, 10);
+      'Item: "' + newItem.itemName + '" was ' + [(newItem.isActive) ? 'Activated' : 'Deactivated'], null, 5);
   }
 }
