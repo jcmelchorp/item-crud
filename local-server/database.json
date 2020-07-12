@@ -1,0 +1,20 @@
+{
+  "items": [
+    {
+      "id": "c3ef7f90-c41d-11ea-85b1-81dab8d7878a",
+      "itemName": "My first item"
+    },
+    {
+      "id": "c98df1c0-c41d-11ea-85b1-81dab8d7878a",
+      "itemName": "Second Item"
+    },
+    {
+      "id": "50fb9770-c41e-11ea-a753-552d239efb0b",
+      "itemName": "This is the thirth"
+    },
+    {
+      "id": "6f2c2b10-c41e-11ea-8fb6-310d959d4ed8",
+      "itemName": "Hola"
+    }
+  ]
+}

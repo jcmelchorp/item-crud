@@ -1,0 +1,14 @@
+<form [formGroup]="itemForm" (ngSubmit)="onSave()">
+  <mat-form-field apparience="outline" hidden>
+    <mat-label>ID</mat-label>
+    <input matInput type="text" #id formControlName="id">
+  </mat-form-field>
+  <mat-form-field class="d-block" apparience="outline">
+    <mat-label>Name</mat-label>
+    <input matInput type="text" #itemName formControlName="itemName">
+  </mat-form-field>
+  <div class="btn-block">
+    <button mat-raised-button class="mx-1" type="reset" [disabled]="itemForm.invalid">Clear</button>
+    <button mat-raised-button class="mx-1" color="primary" type="submit" [disabled]="itemForm.invalid">Save</button>
+  </div>
+</form>
