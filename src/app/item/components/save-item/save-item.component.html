@@ -8,7 +8,7 @@
     <input matInput type="text" #itemName formControlName="itemName">
   </mat-form-field>
   <div class="btn-block">
-    <button mat-raised-button class="mx-1" type="reset" [disabled]="itemForm.invalid">Clear</button>
+    <button mat-raised-button class="mx-1" type="reset" (click)="onReset()" [disabled]="itemForm.invalid">Clear</button>
     <button mat-raised-button class="mx-1" color="primary" type="submit" [disabled]="itemForm.invalid">Save</button>
   </div>
 </form>

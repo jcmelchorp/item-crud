@@ -13,9 +13,11 @@ import { ItemsListComponent } from './components/items-list/items-list.component
 import { SaveItemComponent } from './components/save-item/save-item.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MaterialModule } from '../material.module';
+import { ConfirmItemComponent } from './components/confirm-item/confirm-item.component';
+
 
 @NgModule({
-  declarations: [ItemComponent, ItemsListComponent, SaveItemComponent],
+  declarations: [ItemComponent, ItemsListComponent, SaveItemComponent, ConfirmItemComponent],
   imports: [
     CommonModule,
     HttpClientModule,

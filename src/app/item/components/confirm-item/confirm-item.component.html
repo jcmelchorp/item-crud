@@ -1,0 +1,10 @@
+<h1 matDialogTitle>Delete</h1>
+<mat-dialog-content class="mat-typography">
+  Do you really want to delete "{{data.itemName}}" ?
+  This action can not be undone.
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button matDialogClose>Close</button>
+  <button mat-button (click)="onConfirm()">Confirm</button>
+</mat-dialog-actions>

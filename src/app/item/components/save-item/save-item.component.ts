@@ -40,6 +40,10 @@ export class SaveItemComponent implements OnInit {
     });
   }
 
+  onReset(): void {
+    this.itemForm.reset();
+    this.initializeForm();
+  }
   onSave(): void {
     if (this.itemForm.valid) {
       const newItem: Item = {
@@ -48,14 +52,13 @@ export class SaveItemComponent implements OnInit {
       };
       if (newItem.id === '') {
         newItem.id = uuid();
-        console.log(newItem.id);
         this.store.dispatch(new itemActions.CreateItem(newItem));
+        this.onReset();
       } else {
-        console.log(newItem.id);
         this.store.dispatch(new itemActions.UpdateItem(newItem));
+        this.onReset();
       }
-      this.itemForm.reset();
-      this.initializeForm();
+
     }
   }
 

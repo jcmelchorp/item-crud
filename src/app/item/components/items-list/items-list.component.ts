@@ -4,6 +4,8 @@ import { Item } from '../../models/item.model';
 import { Store, select } from '@ngrx/store';
 import * as itemActions from '../../state/item.actions';
 import * as fromItem from '../../state/item.reducer';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmItemComponent } from '../confirm-item/confirm-item.component';
 @Component({
   selector: 'app-items-list',
   templateUrl: './items-list.component.html',
@@ -15,6 +17,7 @@ export class ItemsListComponent implements OnInit {
   /* Table vars */
   displayedColumns: string[] = ['name', 'actions'];
   constructor(
+    public dialog: MatDialog,
     private store: Store<fromItem.AppState>
   ) { }
 
@@ -25,13 +28,19 @@ export class ItemsListComponent implements OnInit {
   }
 
 
-  deleteItem(itemId: string) {
-    if (confirm('Delete?')) {
-      this.store.dispatch(new itemActions.DeleteItem(itemId));
-    }
+  deleteItem(item: Item): void {
+    const dialogRef = this.dialog.open(ConfirmItemComponent, {
+      width: '300px',
+      data: item
+    });
+    dialogRef.componentInstance.confirmation.subscribe((confirmation: boolean) => {
+      if (confirmation) {
+        this.store.dispatch(new itemActions.DeleteItem(item.id));
+      }
+    });
   }
 
-  editItem(itemId: string) {
+  editItem(itemId: string): void {
     this.store.dispatch(new itemActions.LoadItem(itemId));
   }
 }

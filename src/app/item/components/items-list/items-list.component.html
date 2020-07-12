@@ -15,7 +15,7 @@
     <th mat-header-cell *matHeaderCellDef> Actions </th>
     <td mat-cell *matCellDef="let row">
       <button class="mx-1" mat-raised-button color="accent" (click)="editItem(row.id)">Edit</button>
-      <button class="mx-1" mat-raised-button color="warn" (click)="deleteItem(row.id)">delete</button>
+      <button class="mx-1" mat-raised-button color="warn" (click)="deleteItem(row)">delete</button>
     </td>
   </ng-container>
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
