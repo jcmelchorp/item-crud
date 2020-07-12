@@ -76,10 +76,8 @@ export function itemReducer(state = initialState, action: itemActions.Actions): 
       return {
         ...state,
         error: action.payload,
-      }
+      };
     }
-
-
     case itemActions.ItemActionTypes.DELETE_ITEM_SUCCESS: {
       return itemAdapter.removeOne(action.payload, state);
     }
@@ -87,7 +85,16 @@ export function itemReducer(state = initialState, action: itemActions.Actions): 
       return {
         ...state,
         error: action.payload,
-      }
+      };
+    }
+    case itemActions.ItemActionTypes.ACTIVATE_ITEM_SUCCESS: {
+      return itemAdapter.updateOne(action.payload, state);
+    }
+    case itemActions.ItemActionTypes.ACTIVATE_ITEM_FAIL: {
+      return {
+        ...state,
+        error: action.payload,
+      };
     }
     default: {
       return state;

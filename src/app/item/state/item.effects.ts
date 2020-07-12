@@ -106,5 +106,24 @@ export class ItemEffect {
       )
     )
   );
-
+  @Effect()
+  activateItem$: Observable<Action> = this.actions$.pipe(
+    ofType<itemActions.ActivateItem>(itemActions.ItemActionTypes.ACTIVATE_ITEM),
+    map((action: itemActions.ActivateItem) => action.payload),
+    mergeMap((item: Item) =>
+      this.itemService.updateItem(item).pipe(
+        map(
+          (updatedItem: Item) =>
+            new itemActions.UpdateItemSuccess({
+              id: updatedItem.id,
+              changes: updatedItem
+            })
+        ),
+        catchError(
+          err =>
+            of(new itemActions.UpdateItemFail(err))
+        )
+      )
+    )
+  );
 }

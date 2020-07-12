@@ -18,6 +18,9 @@ export enum ItemActionTypes {
   DELETE_ITEM = '[Item] Delete Item',
   DELETE_ITEM_SUCCESS = '[Item] Delete Item Success',
   DELETE_ITEM_FAIL = '[Item] Delete Item Fail',
+  ACTIVATE_ITEM = '[Item] Activate Item',
+  ACTIVATE_ITEM_SUCCESS = '[Item] Activate Item Success',
+  ACTIVATE_ITEM_FAIL = '[Item] Activate Item Fail'
 }
 /* Create Items */
 export class LoadItems implements Action {
@@ -83,6 +86,19 @@ export class DeleteItemFail implements Action {
   readonly type = ItemActionTypes.DELETE_ITEM_FAIL;
   constructor(public payload: string) { }
 }
+/* Toggle isActive Item */
+export class ActivateItem implements Action {
+  readonly type = ItemActionTypes.ACTIVATE_ITEM;
+  constructor(public payload: Item) { }
+}
+export class ActivateItemSuccess implements Action {
+  readonly type = ItemActionTypes.ACTIVATE_ITEM_SUCCESS;
+  constructor(public payload: Update<Item>) { }
+}
+export class ActivateItemFail implements Action {
+  readonly type = ItemActionTypes.ACTIVATE_ITEM_FAIL;
+  constructor(public payload: string) { }
+}
 
 export type Actions =
   | LoadItems
@@ -99,4 +115,7 @@ export type Actions =
   | UpdateItemFail
   | DeleteItem
   | DeleteItemSuccess
-  | DeleteItemFail;
+  | DeleteItemFail
+  | ActivateItem
+  | ActivateItemSuccess
+  | ActivateItemFail;

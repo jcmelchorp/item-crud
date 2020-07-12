@@ -24,19 +24,29 @@ export class SaveItemComponent implements OnInit {
 
   ngOnInit(): void {
     this.initializeForm();
+    this.selectCurrentItem();
   }
 
   initializeForm(): void {
     this.itemForm = this.formBuilder.group({
       id: new FormControl(''),
-      itemName: new FormControl('', Validators.required)
+      itemName: new FormControl('', Validators.required),
+      isActive: new FormControl(''),
+      dateCreated: new FormControl(''),
+      dateModified: new FormControl('')
     });
+
+  }
+
+  selectCurrentItem(): void {
     const item$: Observable<Item> = this.store.select(fromItem.getCurrentItem);
     item$.subscribe(currentItem => {
       if (currentItem) {
         this.itemForm.patchValue({
           itemName: currentItem.itemName,
-          id: currentItem.id
+          id: currentItem.id,
+          isActive: currentItem.isActive,
+          dateCreated: currentItem.dateCreated,
         });
       }
     });
@@ -46,25 +56,30 @@ export class SaveItemComponent implements OnInit {
     this.itemForm.reset();
     this.initializeForm();
   }
+
   onSave(): void {
     if (this.itemForm.valid) {
       const newItem: Item = {
         id: this.itemForm.get('id').value,
-        itemName: this.itemForm.get('itemName').value
+        itemName: this.itemForm.get('itemName').value,
+        isActive: true,
+        dateCreated: this.itemForm.get('dateCreated').value
       };
       if (newItem.id === '') {
         newItem.id = uuid();
+        newItem.dateCreated = new Date(Date.now());
         this.store.dispatch(new itemActions.CreateItem(newItem));
-        this.notificationService.showNotification('Item: "' + newItem.itemName + '" was created', null, 10);
+        this.notificationService.showNotification(
+          'Item: "' + newItem.itemName + '" was created at:' + newItem.dateCreated.toString(), null, 10);
         this.onReset();
       } else {
+        newItem.dateModified = new Date(Date.now());
         this.store.dispatch(new itemActions.UpdateItem(newItem));
-        this.notificationService.showNotification('Item: "' + newItem.itemName + '" was updated', null, 10);
-
+        this.notificationService.showNotification(
+          'Item: "' + newItem.itemName + '"\n was updated at:' + newItem.dateModified.toString(), null, 10);
         this.onReset();
       }
 
     }
   }
-
 }

@@ -16,9 +16,8 @@ import { NotificationService } from '../../services/notification.service';
 export class ItemsListComponent implements OnInit {
   items$: Observable<Item[]>;
   error$: Observable<string>;
-
   /* Table vars */
-  displayedColumns: string[] = ['name', 'actions'];
+  displayedColumns: string[] = ['name', 'dateCreated', 'dateModified', 'isActive', 'actions'];
   constructor(
     private notificationService: NotificationService,
     public dialog: MatDialog,
@@ -46,5 +45,21 @@ export class ItemsListComponent implements OnInit {
 
   editItem(itemId: string): void {
     this.store.dispatch(new itemActions.LoadItem(itemId));
+  }
+
+  toggleIsActive(item: Item) {
+    console.log(item);
+    const newItem = {
+      id: item.id,
+      itemName: item.itemName,
+      isActive: !item.isActive,
+      dateCreated: item.dateCreated,
+      dateModified: new Date(Date.now())
+    };
+    console.log(newItem);
+
+    this.store.dispatch(new itemActions.UpdateItem(newItem));
+    this.notificationService.showNotification(
+      'Item: "' + newItem.itemName + '" was ' + [(newItem.isActive) ? 'Activated' : 'Deactivated'], null, 10);
   }
 }

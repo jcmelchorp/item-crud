@@ -11,7 +11,6 @@ import { ItemRoutingModule } from './item-routing.module';
 import { ItemComponent } from './containers/item.component';
 import { ItemsListComponent } from './components/items-list/items-list.component';
 import { SaveItemComponent } from './components/save-item/save-item.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MaterialModule } from '../material.module';
 import { ConfirmItemComponent } from './components/confirm-item/confirm-item.component';
 import { NotificationService } from './services/notification.service';
@@ -30,7 +29,6 @@ import { NotificationService } from './services/notification.service';
     FormsModule,
     ReactiveFormsModule,
     ItemRoutingModule,
-    FontAwesomeModule,
     MaterialModule,
     StoreModule.forFeature('items', itemReducer),
     EffectsModule.forFeature([ItemEffect]),
