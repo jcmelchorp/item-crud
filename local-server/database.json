@@ -1,12 +1,8 @@
 {
-  "items": [{
-      "id": "c3ef7f90-c41d-11ea-85b1-81dab8d7878a",
-      "itemName": "My first item"
-    },
+  "items": [
     {
-      "id": "0aee3af0-c43f-11ea-b259-6d5d0f8be527",
-      "itemName": "My Second Item"
+      "id": "4bdd15f0-c466-11ea-bdd3-4fe239d8d7fb",
+      "itemName": "My first item"
     }
-
   ]
 }

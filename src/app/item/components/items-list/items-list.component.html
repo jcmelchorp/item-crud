@@ -1,10 +1,9 @@
 <div *ngIf="(items$ | async)?.length==0">
   <mat-card class="bg-light">
-    <mat-card-content class="text-center">
+    <mat-card-content class="text-center text-danger">
       No Items Found
     </mat-card-content>
   </mat-card>
-
 </div>
 <table *ngIf="(items$ | async)?.length!=0" mat-table #table [dataSource]="items$|async" [class.mat-elevation-z3]="true">
   <ng-container matColumnDef="name">

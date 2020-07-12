@@ -14,10 +14,16 @@ import { SaveItemComponent } from './components/save-item/save-item.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MaterialModule } from '../material.module';
 import { ConfirmItemComponent } from './components/confirm-item/confirm-item.component';
+import { NotificationService } from './services/notification.service';
 
 
 @NgModule({
-  declarations: [ItemComponent, ItemsListComponent, SaveItemComponent, ConfirmItemComponent],
+  declarations: [
+    ItemComponent,
+    ItemsListComponent,
+    SaveItemComponent,
+    ConfirmItemComponent,
+  ],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -29,6 +35,9 @@ import { ConfirmItemComponent } from './components/confirm-item/confirm-item.com
     StoreModule.forFeature('items', itemReducer),
     EffectsModule.forFeature([ItemEffect]),
   ],
-  providers: [ItemService]
+  providers: [
+    ItemService,
+    NotificationService
+  ]
 })
 export class ItemModule { }

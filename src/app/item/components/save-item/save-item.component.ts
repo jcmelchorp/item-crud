@@ -1,3 +1,4 @@
+import { NotificationService } from './../../services/notification.service';
 import { Observable } from 'rxjs';
 import { ItemService } from './../../services/item.service';
 import { Component, OnInit } from '@angular/core';
@@ -17,7 +18,8 @@ export class SaveItemComponent implements OnInit {
   itemForm: FormGroup;
   constructor(
     private formBuilder: FormBuilder,
-    private store: Store<fromItem.AppState>
+    private store: Store<fromItem.AppState>,
+    private notificationService: NotificationService
   ) { }
 
   ngOnInit(): void {
@@ -53,9 +55,12 @@ export class SaveItemComponent implements OnInit {
       if (newItem.id === '') {
         newItem.id = uuid();
         this.store.dispatch(new itemActions.CreateItem(newItem));
+        this.notificationService.showNotification('Item: "' + newItem.itemName + '" was created', null, 10);
         this.onReset();
       } else {
         this.store.dispatch(new itemActions.UpdateItem(newItem));
+        this.notificationService.showNotification('Item: "' + newItem.itemName + '" was updated', null, 10);
+
         this.onReset();
       }
 
