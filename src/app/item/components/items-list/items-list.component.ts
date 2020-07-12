@@ -6,7 +6,6 @@ import * as itemActions from '../../state/item.actions';
 import * as fromItem from '../../state/item.reducer';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmItemComponent } from '../confirm-item/confirm-item.component';
-import { Alert } from '../../models/alert.model';
 import { NotificationService } from '../../services/notification.service';
 
 @Component({
@@ -15,8 +14,6 @@ import { NotificationService } from '../../services/notification.service';
   styleUrls: ['./items-list.component.scss']
 })
 export class ItemsListComponent implements OnInit {
-  @Output() emitAlert: EventEmitter<Alert> = new EventEmitter<Alert>();
-
   items$: Observable<Item[]>;
   error$: Observable<string>;
 
