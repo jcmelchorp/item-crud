@@ -8,18 +8,28 @@
 <table *ngIf="(items$ | async)?.length!=0" mat-table #table [dataSource]="items$|async" [class.mat-elevation-z3]="true">
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef> Name </th>
-    <td mat-cell *matCellDef="let row"> {{row.itemName}} </td>
+    <td mat-cell *matCellDef="let row">
+      <span [ngClass]="(row.isActive) ? '': 'text-sm text-muted'">{{row.itemName}}</span>
+    </td>
   </ng-container>
   <ng-container matColumnDef="dateCreated">
     <th mat-header-cell *matHeaderCellDef> Creation Date </th>
-    <td mat-cell *matCellDef="let row"> {{row.dateCreated|date:'MMM d, y hh:mm:ss a'}} </td>
+    <td mat-cell *matCellDef="let row">
+      <span [ngClass]="(row.isActive) ? '': 'text-sm text-muted'">
+        {{row.dateCreated|date:'MMM d, y hh:mm:ss a'}}
+      </span>
+    </td>
   </ng-container>
   <ng-container matColumnDef="dateModified">
     <th mat-header-cell *matHeaderCellDef> Modification Date </th>
-    <td mat-cell *matCellDef="let row"> {{row.dateModified|date:'MMM d, y hh:mm:ss a'}} </td>
+    <td mat-cell *matCellDef="let row">
+      <span [ngClass]="(row.isActive) ? '': 'text-sm text-muted'">
+        {{row.dateModified|date:'MMM d, y hh:mm:ss a'}}
+      </span>
+    </td>
   </ng-container>
   <ng-container matColumnDef="isActive">
-    <th mat-header-cell *matHeaderCellDef> Active </th>
+    <th mat-header-cell *matHeaderCellDef> Active/Inactive </th>
     <td mat-cell *matCellDef="let row">
       <button mat-icon-button *ngIf="row.isActive" (click)="toggleIsActive(row)">
         <mat-icon color="primary">done</mat-icon>
@@ -32,8 +42,12 @@
   <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef> Actions </th>
     <td mat-cell *matCellDef="let row">
-      <button class="mx-1" mat-raised-button color="accent" (click)="editItem(row.id)">Edit</button>
-      <button class="mx-1" mat-raised-button color="warn" (click)="deleteItem(row)">delete</button>
+      <button class="mx-1" mat-mini-fab color="accent" (click)="editItem(row.id)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button class="mx-1" mat-mini-fab color="warn" (click)="deleteItem(row)">
+        <mat-icon>delete</mat-icon>
+      </button>
     </td>
   </ng-container>
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

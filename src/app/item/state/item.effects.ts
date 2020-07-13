@@ -12,7 +12,7 @@ export class ItemEffect {
 
   constructor(
     private actions$: Actions,
-    private itemService: ItemService
+    private itemService: ItemService,
   ) { }
 
   @Effect()

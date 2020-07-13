@@ -15,6 +15,7 @@ import * as fromItem from '../../state/item.reducer';
 })
 export class SaveItemComponent implements OnInit {
   itemForm: FormGroup;
+
   constructor(
     private formBuilder: FormBuilder,
     private store: Store<fromItem.AppState>,
@@ -30,7 +31,7 @@ export class SaveItemComponent implements OnInit {
     this.itemForm = this.formBuilder.group({
       id: new FormControl(''),
       itemName: new FormControl('', Validators.required),
-      isActive: new FormControl(''),
+      isActive: new FormControl('true', Validators.required),
       dateCreated: new FormControl(''),
       dateModified: new FormControl('')
     });
@@ -42,8 +43,8 @@ export class SaveItemComponent implements OnInit {
     item$.subscribe(currentItem => {
       if (currentItem) {
         this.itemForm.patchValue({
-          itemName: currentItem.itemName,
           id: currentItem.id,
+          itemName: currentItem.itemName,
           isActive: currentItem.isActive,
           dateCreated: currentItem.dateCreated,
         });

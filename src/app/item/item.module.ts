@@ -36,7 +36,7 @@ import { NotificationService } from './services/notification.service';
   ],
   providers: [
     ItemService,
-    NotificationService
+    NotificationService,
   ]
 })
 export class ItemModule { }

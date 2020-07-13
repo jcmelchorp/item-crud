@@ -9,6 +9,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 
+
 @NgModule({
   declarations: [
     AppComponent
@@ -21,6 +22,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     EffectsModule.forRoot([]),
     StoreModule.forRoot([]),
     StoreDevtoolsModule.instrument(),
+
   ],
   providers: [],
   bootstrap: [AppComponent]

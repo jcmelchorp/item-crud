@@ -14,7 +14,7 @@ export class ItemService {
     return this.httpClient.get<Item>(this.SERVER_URL + id);
   }
   createItem(item: Item): Observable<Item> {
-    return this.httpClient.post<Item>(this.SERVER_URL, item);
+    return this.httpClient.post<Item>(this.SERVER_URL, item,);
   }
   updateItem(item: Item): Observable<Item> {
     return this.httpClient.patch<Item>(this.SERVER_URL + item.id, item);
