@@ -5,35 +5,14 @@
       "itemName": "My Item 1",
       "isActive": true,
       "dateCreated": "2020-07-12T21:42:28.063Z",
-      "dateModified": "2020-07-13T02:39:03.021Z"
+      "dateModified": "2020-09-24T01:03:54.444Z"
     },
     {
       "id": "ff4e6c10-c4ac-11ea-8797-a1efa8d6abab",
-      "itemName": "The third item",
+      "itemName": "The third item 3",
       "isActive": true,
       "dateCreated": "2020-07-13T02:03:08.497Z",
-      "dateModified": "2020-07-13T02:33:17.498Z"
-    },
-    {
-      "id": "4e700820-c4ae-11ea-a5e8-4f85995fa4dd",
-      "itemName": "The Fourth",
-      "isActive": false,
-      "dateCreated": "2020-07-13T02:12:30.754Z",
-      "dateModified": "2020-07-13T02:41:30.961Z"
-    },
-    {
-      "id": "534eacc0-c4ae-11ea-a5e8-4f85995fa4dd",
-      "itemName": "FiFth",
-      "isActive": true,
-      "dateCreated": "2020-07-13T02:12:38.924Z",
-      "dateModified": "2020-07-13T02:54:44.217Z"
-    },
-    {
-      "id": "3a63e730-c4b2-11ea-afee-f9ea7843cca7",
-      "itemName": "The Sixth",
-      "isActive": false,
-      "dateCreated": "2020-07-13T02:40:35.107Z",
-      "dateModified": "2020-07-13T02:54:24.039Z"
+      "dateModified": "2020-09-24T01:03:49.316Z"
     }
   ]
 }

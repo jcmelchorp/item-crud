@@ -2,11 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Item } from '../models/item.model';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireDatabase } from '@angular/fire/database';
+import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class ItemService {
   private SERVER_URL = 'http://localhost:3000/items/';
-  constructor(private httpClient: HttpClient) { }
+  private serverDb = environment.firebaseConfig.databaseURL;
+  constructor(private httpClient: HttpClient) {}
   getItems(): Observable<Item[]> {
     return this.httpClient.get<Item[]>(this.SERVER_URL);
   }
@@ -14,7 +18,7 @@ export class ItemService {
     return this.httpClient.get<Item>(this.SERVER_URL + id);
   }
   createItem(item: Item): Observable<Item> {
-    return this.httpClient.post<Item>(this.SERVER_URL, item,);
+    return this.httpClient.post<Item>(this.SERVER_URL, item);
   }
   updateItem(item: Item): Observable<Item> {
     return this.httpClient.patch<Item>(this.SERVER_URL + item.id, item);

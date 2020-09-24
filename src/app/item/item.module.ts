@@ -1,3 +1,4 @@
+import { AfItemService } from './services/af-item.service';
 import { ItemService } from './services/item.service';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
@@ -14,8 +15,6 @@ import { SaveItemComponent } from './components/save-item/save-item.component';
 import { MaterialModule } from '../material.module';
 import { ConfirmItemComponent } from './components/confirm-item/confirm-item.component';
 import { NotificationService } from './services/notification.service';
-
-
 
 @NgModule({
   declarations: [
@@ -34,9 +33,6 @@ import { NotificationService } from './services/notification.service';
     StoreModule.forFeature('items', itemReducer),
     EffectsModule.forFeature([ItemEffect]),
   ],
-  providers: [
-    ItemService,
-    NotificationService,
-  ]
+  providers: [ItemService, NotificationService, AfItemService],
 })
-export class ItemModule { }
+export class ItemModule {}

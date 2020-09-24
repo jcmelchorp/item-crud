@@ -9,25 +9,15 @@ import * as itemActions from '../state/item.actions';
 
 @Injectable()
 export class ItemEffect {
-
-  constructor(
-    private actions$: Actions,
-    private itemService: ItemService,
-  ) { }
+  constructor(private actions$: Actions, private itemService: ItemService) {}
 
   @Effect()
   loadItems$: Observable<Action> = this.actions$.pipe(
     ofType<itemActions.LoadItems>(itemActions.ItemActionTypes.LOAD_ITEMS),
     mergeMap((action: itemActions.LoadItems) =>
       this.itemService.getItems().pipe(
-        map(
-          (items: Item[]) =>
-            new itemActions.LoadItemsSuccess(items)
-        ),
-        catchError(
-          err =>
-            of(new itemActions.LoadItemsFail(err))
-        )
+        map((items: Item[]) => new itemActions.LoadItemsSuccess(items)),
+        catchError((err) => of(new itemActions.LoadItemsFail(err)))
       )
     )
   );
@@ -37,18 +27,11 @@ export class ItemEffect {
     ofType<itemActions.LoadItem>(itemActions.ItemActionTypes.LOAD_ITEM),
     mergeMap((action: itemActions.LoadItem) =>
       this.itemService.getItemById(action.payload).pipe(
-        map(
-          (item: Item) =>
-            new itemActions.LoadItemSuccess(item)
-        ),
-        catchError(
-          err =>
-            of(new itemActions.LoadItemFail(err))
-        )
+        map((item: Item) => new itemActions.LoadItemSuccess(item)),
+        catchError((err) => of(new itemActions.LoadItemFail(err)))
       )
     )
   );
-
 
   @Effect()
   createItem$: Observable<Action> = this.actions$.pipe(
@@ -56,14 +39,8 @@ export class ItemEffect {
     map((action: itemActions.CreateItem) => action.payload),
     mergeMap((item: Item) =>
       this.itemService.createItem(item).pipe(
-        map(
-          (newItem: Item) =>
-            new itemActions.CreateItemSuccess(newItem)
-        ),
-        catchError(
-          err =>
-            of(new itemActions.CreateItemFail(err))
-        )
+        map((newItem: Item) => new itemActions.CreateItemSuccess(newItem)),
+        catchError((err) => of(new itemActions.CreateItemFail(err)))
       )
     )
   );
@@ -78,13 +55,10 @@ export class ItemEffect {
           (updatedItem: Item) =>
             new itemActions.UpdateItemSuccess({
               id: updatedItem.id,
-              changes: updatedItem
+              changes: updatedItem,
             })
         ),
-        catchError(
-          err =>
-            of(new itemActions.UpdateItemFail(err))
-        )
+        catchError((err) => of(new itemActions.UpdateItemFail(err)))
       )
     )
   );
@@ -95,14 +69,8 @@ export class ItemEffect {
     map((action: itemActions.DeleteItem) => action.payload),
     mergeMap((id: string) =>
       this.itemService.deleteItem(id).pipe(
-        map(
-          () =>
-            new itemActions.DeleteItemSuccess(id)
-        ),
-        catchError(
-          err =>
-            of(new itemActions.DeleteItemFail(err))
-        )
+        map(() => new itemActions.DeleteItemSuccess(id)),
+        catchError((err) => of(new itemActions.DeleteItemFail(err)))
       )
     )
   );
@@ -116,13 +84,10 @@ export class ItemEffect {
           (updatedItem: Item) =>
             new itemActions.UpdateItemSuccess({
               id: updatedItem.id,
-              changes: updatedItem
+              changes: updatedItem,
             })
         ),
-        catchError(
-          err =>
-            of(new itemActions.UpdateItemFail(err))
-        )
+        catchError((err) => of(new itemActions.UpdateItemFail(err)))
       )
     )
   );
