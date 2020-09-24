@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "item-crud"
+  },
+  "targets": {
+    "item-crud": {
+      "hosting": {
+        "item-crud": [
+          "item-crud"
+        ]
+      }
+    }
   }
 }

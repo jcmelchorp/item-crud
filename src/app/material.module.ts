@@ -29,6 +29,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatTreeModule } from '@angular/material/tree';
+
 
 @NgModule({
   declarations: [],
@@ -39,6 +42,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatInputModule,
     MatAutocompleteModule,
     MatDatepickerModule,
+    MatNativeDateModule,
     MatFormFieldModule,
     MatRadioModule,
     MatSelectModule,
@@ -63,7 +67,11 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatSnackBarModule,
     MatTableModule,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatTreeModule,
+    MatIconModule,
+    MatButtonModule,
+    MatTableModule
   ],
   exports: [
     MatCheckboxModule,
@@ -72,6 +80,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatInputModule,
     MatAutocompleteModule,
     MatDatepickerModule,
+    MatNativeDateModule,
     MatFormFieldModule,
     MatRadioModule,
     MatSelectModule,
@@ -96,12 +105,11 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatSnackBarModule,
     MatTableModule,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatTreeModule,
+    MatIconModule,
+    MatButtonModule,
+    MatTableModule
   ]
 })
 export class MaterialModule { }
-/* constructor( @Optional() @SkipSelf() parentModule: CoreModule) {
-  if (parentModule) {
-    throw new Error('CoreModule has already been loaded. You should only import Core modules in the AppModule only.');
-  }
-} */
