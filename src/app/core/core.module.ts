@@ -14,9 +14,11 @@ import { MaterialModule } from './../material.module';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { WellcomeComponent } from './components/wellcome/wellcome.component';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
   declarations: [
+    AboutComponent,
     DashboardComponent,
     HeaderComponent,
     HomeComponent,
@@ -36,6 +38,7 @@ import { WellcomeComponent } from './components/wellcome/wellcome.component';
     FontAwesomeModule,
   ],
   exports: [
+    AboutComponent,
     DashboardComponent,
     HeaderComponent,
     HomeComponent,

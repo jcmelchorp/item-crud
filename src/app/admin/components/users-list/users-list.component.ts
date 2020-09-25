@@ -1,20 +1,26 @@
-import { Component, OnInit, Output, Input, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Output,
+  Input,
+  EventEmitter,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 
 @Component({
-  selector: 'rds-users-list',
+  selector: 'app-users-list',
   templateUrl: './users-list.component.html',
   styleUrls: ['./users-list.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UsersListComponent implements OnInit {
   @Input() users: any[] | undefined;
   @Output() userSelected = new EventEmitter<any>();
   @Output() addAdmin = new EventEmitter<any>();
   @Output() removeAdmin = new EventEmitter<any>();
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
   onUserSelected(user: any): void {
     this.userSelected.emit(user);
   }

@@ -6,7 +6,7 @@ import { AngularFireDatabase } from '@angular/fire/database';
 import { User } from '../models/user.model';
 // import { environment } from 'src/environments/environment';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
   user$: Observable<firebase.User>;
@@ -32,20 +32,35 @@ export class AuthService {
       gapi.client.load('classroom', 'v1', () => console.log('loaded classroom'));
     });
   } */
-  register(email: string, password: string): Observable<firebase.auth.UserCredential> {
+  register(
+    email: string,
+    password: string
+  ): Observable<firebase.auth.UserCredential> {
     return from(this.afAuth.createUserWithEmailAndPassword(email, password));
   }
 
-  updateProfile(displayName: string, photoUrl: string) {
+  updateProfile(
+    displayName: string,
+    photoUrl: string
+  ): Observable<firebase.User> {
     const userProfile = this.afAuth.currentUser;
     if (userProfile) {
-      /*       return <any>from(userProfile.updateProfile({ displayName: displayName, photoURL: photoUrl }));
-       */
+      /* return;
+      from(
+        userProfile.updateProfile({
+          displayName: displayName,
+          photoURL: photoUrl,
+        })
+      ); */
+
       return from(userProfile) as any;
     }
   }
 
-  login(email: string, password: string): Observable<firebase.auth.UserCredential> {
+  login(
+    email: string,
+    password: string
+  ): Observable<firebase.auth.UserCredential> {
     return from(this.afAuth.signInWithEmailAndPassword(email, password));
   }
 
@@ -56,14 +71,28 @@ export class AuthService {
       provider.addScope('email');
       provider.addScope('profile');
       provider.addScope('openid');
-      provider.addScope('https://www.googleapis.com/auth/classroom.announcements');
+      provider.addScope(
+        'https://www.googleapis.com/auth/classroom.announcements'
+      );
       provider.addScope('https://www.googleapis.com/auth/classroom.courses');
-      provider.addScope('https://www.googleapis.com/auth/classroom.coursework.me');
-      provider.addScope('https://www.googleapis.com/auth/classroom.coursework.students');
-      provider.addScope('https://www.googleapis.com/auth/classroom.guardianlinks.students');
-      provider.addScope('https://www.googleapis.com/auth/classroom.profile.emails');
-      provider.addScope('https://www.googleapis.com/auth/classroom.profile.photos');
-      provider.addScope('https://www.googleapis.com/auth/classroom.push-notifications');
+      provider.addScope(
+        'https://www.googleapis.com/auth/classroom.coursework.me'
+      );
+      provider.addScope(
+        'https://www.googleapis.com/auth/classroom.coursework.students'
+      );
+      provider.addScope(
+        'https://www.googleapis.com/auth/classroom.guardianlinks.students'
+      );
+      provider.addScope(
+        'https://www.googleapis.com/auth/classroom.profile.emails'
+      );
+      provider.addScope(
+        'https://www.googleapis.com/auth/classroom.profile.photos'
+      );
+      provider.addScope(
+        'https://www.googleapis.com/auth/classroom.push-notifications'
+      );
       provider.addScope('https://www.googleapis.com/auth/classroom.rosters');
       provider.addScope('https://www.googleapis.com/auth/classroom.topics');
       provider.addScope('https://www.googleapis.com/auth/userinfo.email');
@@ -93,7 +122,11 @@ export class AuthService {
 
   updateOnlineStatus(uid: string, status: boolean): Observable<void> {
     if (status) {
-      this.db.database.ref().child('users/' + uid).onDisconnect().update({ isOnline: false });
+      this.db.database
+        .ref()
+        .child('users/' + uid)
+        .onDisconnect()
+        .update({ isOnline: false });
     }
     return from(this.db.object('users/' + uid).update({ isOnline: status }));
   }
@@ -111,7 +144,7 @@ export class AuthService {
   }
 
   getAccessToken(): Promise<string> {
-    return this.afAuth.currentUser.then(user => {
+    return this.afAuth.currentUser.then((user) => {
       return user.getIdToken();
     });
   }

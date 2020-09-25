@@ -5,11 +5,9 @@
         <fa-icon [icon]="home" size="lg"></fa-icon>
       </button>
       <!--buttons disappear on Xs devices-->
-      <div *ngIf="!deviceXs">
-        <button mat-button [routerLink]="['/login']">Identifícate</button>
-        <button mat-button [routerLink]="['/under-construction']">
-          Mi desempeño
-        </button>
+      <div *ngIf="!deviceXs && isLoggedIn && !isLoading">
+        <button mat-button [routerLink]="['/items']">Items</button>
+        <button mat-button [routerLink]="['/kanban']">TaskBoards</button>
       </div>
       <!---->
     </div>
@@ -45,11 +43,12 @@
       </button>
     </div>
   </mat-toolbar-row>
-  <mat-toolbar-row *ngIf="deviceXs" fxLayoutAlign="space-between center">
-    <button mat-button [routerLink]="['/courses']">Cursos</button>
-    <button mat-button [routerLink]="['/under-construction']">
-      Mi desempeño
-    </button>
+  <mat-toolbar-row
+    *ngIf="deviceXs && isLoggedIn && !isLoading"
+    fxLayoutAlign="space-between center"
+  >
+    <button mat-button [routerLink]="['/items']">Items</button>
+    <button mat-button [routerLink]="['/kanban']">TaskBoards</button>
   </mat-toolbar-row>
 </mat-toolbar>
 <!-- Menu Items -->
@@ -67,7 +66,7 @@
 <!-- Menu Items -->
 <mat-menu #useractions="matMenu" fxLayoutAlign="end">
   <button mat-menu-item [routerLink]="['profile']">Mi cuenta</button>
-  <button *ngIf="isAdmin" mat-menu-item [routerLink]="['admin-panel']">
+  <button *ngIf="isAdmin" mat-menu-item [routerLink]="['admin']">
     Administración
   </button>
   <button mat-menu-item (click)="onLogout()">Cerrar sesión</button>

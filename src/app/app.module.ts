@@ -1,3 +1,4 @@
+import { AuthService } from './auth/services/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -15,6 +16,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from 'src/environments/environment';
 import { CoreModule } from './core/core.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,11 +25,14 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FontAwesomeModule,
     CoreModule,
+    AuthModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     AngularFirestoreModule,
+    EffectsModule.forRoot([]),
     StoreModule.forRoot(reducers, {
       runtimeChecks: {
         strictStateImmutability: true,
@@ -36,9 +41,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
       metaReducers,
     }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
-    EffectsModule.forRoot([]),
-    CoreModule,
-    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

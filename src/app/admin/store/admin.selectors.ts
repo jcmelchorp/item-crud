@@ -5,24 +5,25 @@ export const getAdminState = (state: AppState) => state.admin;
 
 export const getUsersList = createSelector(
   getAdminState,
-  admin => admin.usersList
+  (admin) => admin.usersList
 );
 
 export const getUsersListLoading = createSelector(
   getAdminState,
-  admin => admin.usersListLoading
+  (admin) => admin.usersListLoading
 );
 
 export const getSelectedUser = createSelector(
   getUsersList,
-  (usersList: any, uid: string) => usersList.filter( (user: any) => user.uid === uid)[0]
+  (usersList: any, uid: string) =>
+    usersList.filter((user: any) => user.uid === uid)[0]
 );
 
-export const getUserProjects = createSelector(
+export const getUserItems = createSelector(
   getAdminState,
   (admin: any, uid: string) => {
-    if (admin.userProjects.hasOwnProperty(uid)) {
-      return admin.userProjects[uid];
+    if (admin.userItems.hasOwnProperty(uid)) {
+      return admin.userItems[uid];
     } else {
       return null;
     }
@@ -40,12 +41,12 @@ export const getUserCustomers = createSelector(
   }
 );
 
-export const getUserProjectsLoading = createSelector(
+export const getUserItemsLoading = createSelector(
   getAdminState,
-  admin => admin.userProjectsLoading
+  (admin) => admin.userItemsLoading
 );
 
 export const getUserCustomersLoading = createSelector(
   getAdminState,
-  admin => admin.userCustomersLoading
+  (admin) => admin.userCustomersLoading
 );

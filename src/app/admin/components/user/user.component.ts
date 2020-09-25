@@ -1,12 +1,18 @@
-import { Component, OnInit, Output, Input, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Output,
+  Input,
+  EventEmitter,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
 
-
 @Component({
-  selector: 'rds-user',
+  selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserComponent implements OnInit {
   @Input() user: any;
@@ -14,10 +20,9 @@ export class UserComponent implements OnInit {
   @Output() addAdmin = new EventEmitter<any>();
   @Output() removeAdmin = new EventEmitter<any>();
   circ = faCircle;
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
   selectUser(): void {
     this.userSelected.emit(this.user);
   }

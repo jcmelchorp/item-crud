@@ -23,10 +23,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FlexLayoutModule,
     FontAwesomeModule,
     StoreModule.forFeature('auth', fromAuth.authReducer),
-    EffectsModule.forFeature([AuthEffects])
+    EffectsModule.forFeature([AuthEffects]),
   ],
   declarations: [RegisterComponent, LoginComponent],
-  exports: [RegisterComponent],
-  providers: [AuthService]
+  providers: [AuthService],
 })
-export class AuthModule { }
+export class AuthModule {}

@@ -3,11 +3,10 @@ import { AngularFireDatabase, SnapshotAction } from '@angular/fire/database';
 import { from, Subject, Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AdminService {
-
-  constructor(private db: AngularFireDatabase) { }
+  constructor(private db: AngularFireDatabase) {}
 
   selectedUser = new Subject();
   selectedUser$ = this.selectedUser.asObservable();
@@ -17,9 +16,9 @@ export class AdminService {
     return usersRef.snapshotChanges();
   }
 
-  getUserProjects(uid: string): Observable<SnapshotAction<unknown>[]> {
-    const projectsRef = this.db.list('projects/' + uid);
-    return projectsRef.snapshotChanges();
+  getUserItems(uid: string): Observable<SnapshotAction<unknown>[]> {
+    const itemsRef = this.db.list('items/' + uid);
+    return itemsRef.snapshotChanges();
   }
 
   getUserCustomers(uid: string): Observable<SnapshotAction<unknown>[]> {
@@ -31,12 +30,12 @@ export class AdminService {
     return this.db.object('admins/' + uid).valueChanges();
   }
 
-  deleteUserProject(uid: string, projectId: string): Observable<void> {
-    return from(this.db.object(`projects/${uid}/` + projectId).remove());
+  deleteUserItem(uid: string, projectId: string): Observable<void> {
+    return from(this.db.object('items/${uid}/' + projectId).remove());
   }
 
   deleteUserCustomer(uid: string, customerId: string): Observable<void> {
-    return from(this.db.object(`customers/${uid}/` + customerId).remove());
+    return from(this.db.object('customers/${uid}/' + customerId).remove());
   }
 
   addAdminPrivileges(uid: string): Observable<void> {
