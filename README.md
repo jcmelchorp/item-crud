@@ -5,16 +5,16 @@ This repository contains a template for an Angular 10 application with basic CRU
 ## Features of the application
 
 - [Angular 10](https://angular.io/)
-- [NgRx 9](https://ngrx.io/)
+- [NgRx 10](https://ngrx.io/)
 - [Angular Material 10](https://material.angular.io/)
-- [Bootstrap 4.5](https://getbootstrap.com/)
+- [Bootstrap 4.5.2](https://getbootstrap.com/)
 
 ## Install application
 
 Just clone this repository:
 
 ```bash
-git clone https://github.com/JulioMelchorPinto/item-crud.git
+git clone https://github.com/jcmelchorp/item-crud.git
 ```
 
 Then, install dependencies:
