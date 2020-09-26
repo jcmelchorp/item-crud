@@ -1,8 +1,7 @@
-import { v1 as uuid } from 'uuid';
 export interface Item {
-  id: uuid;
+  key?: any;
   itemName: string;
   isActive?: boolean;
-  dateCreated?: Date;
-  dateModified?: Date;
+  dateCreated?: string;
+  dateModified?: string;
 }

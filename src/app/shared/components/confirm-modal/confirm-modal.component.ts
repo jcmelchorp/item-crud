@@ -1,7 +1,6 @@
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
-import { MDBModalRef } from 'angular-bootstrap-md';
 import { Subject } from 'rxjs';
-import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-confirm-modal',
@@ -9,25 +8,20 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./confirm-modal.component.scss']
 })
 export class ConfirmModalComponent implements OnInit {
-
   confirmation: Subject<boolean> = new Subject();
 
   constructor(
-    public modalRef: MDBModalRef,
-    public translate: TranslateService) {
-      translate.addLangs(['en', 'es']);
-      translate.setDefaultLang('es');
-  }
-  switchLang(lang: string) {
-      this.translate.use(lang);
-  }
+    public dialog: MatDialog,
 
-  ngOnInit() {
+  ) { }
+  ngOnInit(): void {
   }
-
-  onDelete() {
+  onDelete(): void {
     this.confirmation.next(true);
-    this.modalRef.hide();
+    this.dialog.closeAll();
+  }
+  onNoClick(): void {
+    this.dialog.closeAll();
   }
 
 }

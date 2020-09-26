@@ -30,8 +30,8 @@ export class AdminService {
     return this.db.object('admins/' + uid).valueChanges();
   }
 
-  deleteUserItem(uid: string, projectId: string): Observable<void> {
-    return from(this.db.object('items/${uid}/' + projectId).remove());
+  deleteUserItem(uid: string, itemId: string): Observable<void> {
+    return from(this.db.object('items/${uid}/' + itemId).remove());
   }
 
   deleteUserCustomer(uid: string, customerId: string): Observable<void> {

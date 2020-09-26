@@ -1,55 +1,80 @@
+import { AppState } from './../../../reducers/index';
 import { NotificationService } from './../../services/notification.service';
 import { Observable } from 'rxjs';
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { Component, Input, OnInit } from '@angular/core';
+import {
+  FormBuilder,
+  FormGroup,
+  FormControl,
+  Validators,
+} from '@angular/forms';
 import { v1 as uuid } from 'uuid';
 import { Item } from '../../models/item.model';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 import * as itemActions from '../../state/item.actions';
 import * as fromItem from '../../state/item.reducer';
+import { getAllLoaded, getItems } from '../../state/item.selectors';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-save-item',
   templateUrl: './save-item.component.html',
-  styleUrls: ['./save-item.component.scss']
+  styleUrls: ['./save-item.component.scss'],
 })
 export class SaveItemComponent implements OnInit {
   itemForm: FormGroup;
-
+  @Input() item: Item;
+  items$: Observable<Item[] | null>;
+  isLoading$: Observable<boolean>;
   constructor(
     private formBuilder: FormBuilder,
-    private store: Store<fromItem.AppState>,
-    private notificationService: NotificationService
-  ) { }
+    private store: Store<AppState>,
+    private notificationService: NotificationService,
+    private afAuth: AngularFireAuth
+  ) {}
 
   ngOnInit(): void {
     this.initializeForm();
-    this.selectCurrentItem();
-  }
+    this.items$ = this.store.pipe(
+      select(getItems),
+      map((items: Item[]) => {
+        if (this.user && !items) {
+          this.store.dispatch(new itemActions.ItemsQuery());
+        }
+        return items;
+      })
+    );
 
+    //this.selectCurrentItem();
+  }
+  get user(): Promise<firebase.User> {
+    return this.afAuth.currentUser;
+  }
   initializeForm(): void {
     this.itemForm = this.formBuilder.group({
-      id: new FormControl(''),
+      key: new FormControl(''),
       itemName: new FormControl('', Validators.required),
       isActive: new FormControl('true', Validators.required),
       dateCreated: new FormControl(''),
-      dateModified: new FormControl('')
+      dateModified: new FormControl(''),
     });
-
   }
 
   selectCurrentItem(): void {
-    const item$: Observable<Item> = this.store.select(fromItem.getCurrentItem);
-    item$.subscribe(currentItem => {
+    this.isLoading$ = this.store.select(getAllLoaded);
+    /* this.item: Observable<Item> = this.store.select(getItem);
+    item.subscribe((currentItem) => {
       if (currentItem) {
         this.itemForm.patchValue({
-          id: currentItem.id,
+          key: currentItem.key,
           itemName: currentItem.itemName,
           isActive: currentItem.isActive,
           dateCreated: currentItem.dateCreated,
+          dateModified: currentItem.dateModified,
         });
       }
-    });
+    });  */
   }
 
   onReset(): void {
@@ -60,26 +85,30 @@ export class SaveItemComponent implements OnInit {
   onSave(): void {
     if (this.itemForm.valid) {
       const newItem: Item = {
-        id: this.itemForm.get('id').value,
+        key: this.itemForm.get('key').value,
         itemName: this.itemForm.get('itemName').value,
         isActive: this.itemForm.get('isActive').value,
-        dateCreated: this.itemForm.get('dateCreated').value
+        dateCreated: this.itemForm.get('dateCreated').value,
       };
-      if (newItem.id === '') {
-        newItem.id = uuid();
-        newItem.dateCreated = new Date(Date.now());
-        this.store.dispatch(new itemActions.CreateItem(newItem));
+      if (newItem.key === '') {
+        newItem.dateCreated = new Date(Date.now()).toISOString();
+        this.store.dispatch(new itemActions.ItemAdded({ item: newItem }));
         this.notificationService.showNotification(
-          'Item: "' + newItem.itemName + '" was created', null, 5);
+          'Item: "' + newItem.itemName + '" was created',
+          null,
+          5
+        );
         this.onReset();
       } else {
-        newItem.dateModified = new Date(Date.now());
-        this.store.dispatch(new itemActions.UpdateItem(newItem));
+        newItem.dateModified = new Date(Date.now()).toISOString();
+        this.store.dispatch(new itemActions.ItemEdited({ item: newItem }));
         this.notificationService.showNotification(
-          'Item: "' + newItem.itemName + '" was updated', null, 5);
+          'Item: "' + newItem.itemName + '" was updated',
+          null,
+          5
+        );
         this.onReset();
       }
-
     }
   }
 }

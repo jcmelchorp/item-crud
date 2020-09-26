@@ -45,14 +45,6 @@ export class AuthService {
   ): Observable<firebase.User> {
     const userProfile = this.afAuth.currentUser;
     if (userProfile) {
-      /* return;
-      from(
-        userProfile.updateProfile({
-          displayName: displayName,
-          photoURL: photoUrl,
-        })
-      ); */
-
       return from(userProfile) as any;
     }
   }

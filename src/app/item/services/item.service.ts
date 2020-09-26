@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { from, Observable, of } from 'rxjs';
 import { Item } from '../models/item.model';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireDatabase } from '@angular/fire/database';
@@ -8,22 +8,47 @@ import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class ItemService {
-  private SERVER_URL = 'http://localhost:3000/items/';
-  private serverDb = environment.firebaseConfig.databaseURL;
-  constructor(private httpClient: HttpClient) {}
-  getItems(): Observable<Item[]> {
-    return this.httpClient.get<Item[]>(this.SERVER_URL);
+  items$: Observable<Item[]>;
+  constructor(
+    private httpClient: HttpClient,
+    private db: AngularFireDatabase,
+    private afAuth: AngularFireAuth
+  ) {
+    //this.userId;
   }
-  getItemById(id: string): Observable<Item> {
-    return this.httpClient.get<Item>(this.SERVER_URL + id);
+  get userId(): Observable<firebase.User> {
+    if (this.afAuth.currentUser) {
+      return from(this.afAuth.currentUser);
+    }
   }
-  createItem(item: Item): Observable<Item> {
-    return this.httpClient.post<Item>(this.SERVER_URL, item);
+  addItem(item: Item, userId: string) {
+    const items = this.db.list(`items/${userId}`);
+    return items.push(item);
   }
-  updateItem(item: Item): Observable<Item> {
-    return this.httpClient.patch<Item>(this.SERVER_URL + item.id, item);
+  addItems(items: Item[]): void {
+    const userId = this.userId;
+    items.forEach((item: Item) => {
+      this.db.list(`items/${userId}`).push(item);
+    });
   }
-  deleteItem(id: string): Observable<Item> {
-    return this.httpClient.delete<Item>(this.SERVER_URL + id);
+
+  get(userId: string) {
+    return this.db.list(`items/${userId}`).snapshotChanges();
+  }
+
+  update(item: Item, userId: string) {
+    return of(
+      this.db.object(`items/${userId}/` + item.key).update({
+        key: item.key,
+        itemName: item.itemName,
+        isActive: item.isActive,
+        dateCreated: item.dateCreated,
+        dateModified: item.dateModified,
+      })
+    );
+  }
+
+  delete(item: Item, userId: string): Promise<void> {
+    return this.db.object(`items/${userId}/` + item.key).remove();
   }
 }

@@ -1,20 +1,22 @@
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MaterialModule } from './../material.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { ConfirmModalComponent } from './components/confirm-modal/confirm-modal.component';
 
-import { CustomersModalComponent } from './components/customers-modal/customers-modal.component';
-import { FormsModule } from '@angular/forms';
-import { CustomersListComponent } from './components/customers-list/customers-list.component';
-
 @NgModule({
-  declarations: [
-    ConfirmModalComponent,
-    CustomersModalComponent,
-    CustomersListComponent,
+  declarations: [ConfirmModalComponent],
+  imports: [
+    CommonModule,
+    FormsModule,
+    MaterialModule,
+    FlexLayoutModule,
+    FontAwesomeModule,
   ],
-  imports: [CommonModule, FormsModule],
-  exports: [CustomersListComponent],
+  exports: [],
   providers: [],
-  entryComponents: [ConfirmModalComponent, CustomersModalComponent],
+  entryComponents: [ConfirmModalComponent],
 })
 export class SharedModule {}

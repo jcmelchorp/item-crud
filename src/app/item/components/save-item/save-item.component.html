@@ -1,7 +1,7 @@
 <form [formGroup]="itemForm" novalidate (ngSubmit)="onSave()">
   <mat-form-field apparience="outline" hidden>
     <mat-label>ID</mat-label>
-    <input matInput type="text" #id formControlName="id">
+    <input matInput type="text" #key formControlName="key">
   </mat-form-field>
   <mat-slide-toggle #isActive color="primary" formControlName="isActive">
     Item {{(itemForm.value.isActive) ? 'activated' : 'deactivated'}}

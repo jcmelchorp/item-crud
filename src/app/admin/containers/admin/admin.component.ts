@@ -16,7 +16,7 @@ import {
 import { User } from '../../../auth/models/user.model';
 import { map, delay, take } from 'rxjs/operators';
 import { Item } from 'src/app/item/models/item.model';
-import { ConfirmModalComponent } from 'src/app/core/components/confirm-modal/confirm-modal.component';
+import { ConfirmModalComponent } from 'src/app/shared/components/confirm-modal/confirm-modal.component';
 
 @Component({
   selector: 'app-admin',
@@ -95,7 +95,7 @@ export class AdminComponent implements OnInit {
     this.selectedUser = null;
   }
 
-  openItemConfirmModal(items: Item): void {
+  openItemConfirmModal(item: Item): void {
     this.modalRef = this.modalService.show(
       ConfirmModalComponent,
       this.modalConfig
@@ -108,7 +108,7 @@ export class AdminComponent implements OnInit {
           this.store.dispatch(
             new fromAdmin.DeleteUserItem({
               userId: this.selectedUser.key,
-              itemId: items.id,
+              itemId: item.key,
             })
           );
         }
@@ -139,8 +139,8 @@ export class AdminComponent implements OnInit {
     this.openCustomerConfirmModal(customer);
   }
 */
-  onItemDelete(items: Item) {
-    this.openItemConfirmModal(items);
+  onItemDelete(item: Item): void {
+    this.openItemConfirmModal(item);
   }
 
   addAdminPrivileges(user: any): void {

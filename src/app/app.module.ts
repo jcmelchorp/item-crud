@@ -1,4 +1,4 @@
-import { AuthService } from './auth/services/auth.service';
+import { AdminModule } from './admin/admin.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -17,6 +17,8 @@ import { environment } from 'src/environments/environment';
 import { CoreModule } from './core/core.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AuthModule } from './auth/auth.module';
+import { ItemModule } from './item/item.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,6 +30,8 @@ import { AuthModule } from './auth/auth.module';
     FontAwesomeModule,
     CoreModule,
     AuthModule,
+    AdminModule,
+    SharedModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFireDatabaseModule,

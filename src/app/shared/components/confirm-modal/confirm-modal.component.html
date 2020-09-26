@@ -1,16 +1,11 @@
-<div class="modal-content">
-  <div class="modal-header">
-    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-      <span aria-hidden="true"><i class="fa fa-times-circle"></i></span>
-    </button>
-    <h4 class="modal-title w-100" id="myModalLabel">{{'Delete' | translate}}</h4>
-  </div>
-  <div class="modal-body">
-    <p>{{'DeleteConfirm' | translate}}</p>
-  </div>
-  <div class="modal-footer">
-    <button type="button" mdbBtn color="white" class="black-text waves-light" aria-label="Close" (click)="modalRef.hide()"
-      mdbWavesEffect>{{'Cancel' | translate}}</button>
-    <button type="button" mdbBtn color="red" class="waves-light" mdbWavesEffect (click)="onDelete()">{{'Delete' | translate}}</button>
-  </div>
+<div mat-dialog-title>
+  Eliminar
+</div>
+<div mat-dialog-content>
+  <p>¿Está seguro de borrar este elemento?</p>
+  <p>Si continua perderá el elemento y no podrá recuperarlo</p>
+</div>
+<div mat-dialog-actions>
+  <button type="button" mat-rised-button class="btn btn-default" (click)="onNoClick()">Cancelar</button>
+  <button type="button" mat-rised-button class="btn btn-danger" (click)="onDelete()">Eliminar</button>
 </div>

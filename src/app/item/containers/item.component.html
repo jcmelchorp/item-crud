@@ -1,9 +1,11 @@
-<div class="px-5 pt-5">
+<div class="px-5 py-3">
   <p class="display-4">Items</p>
 </div>
 <div class="px-5">
   <div class="p-5">
-    <app-save-item></app-save-item>
+    <app-save-item (itemEmited)="onItemEdited($event)"></app-save-item>
   </div>
-  <app-items-list></app-items-list>
+  <app-item-list [items]="items$ | async">
+  </app-item-list>
 </div>
+<div class="p-5"></div>

@@ -9,6 +9,8 @@ import { AppState } from 'src/app/reducers';
 import { map } from 'rxjs/operators';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { User } from 'src/app/auth/models/user.model';
+import { from } from 'rxjs/internal/observable/from';
+import { Input } from '@angular/core';
 
 @Component({
   selector: 'app-main',
@@ -18,21 +20,12 @@ import { User } from 'src/app/auth/models/user.model';
 export class MainComponent implements OnInit {
   plus = faPlus;
   question = faQuestionCircle;
-
-  user$: Observable<User | null>;
-  isLoading$: Observable<boolean>;
+  @Input() user: User;
 
   constructor(
     private afAuth: AngularFireAuth,
     private store: Store<AppState>
   ) {}
 
-  get user(): Promise<firebase.User | null> {
-    return this.afAuth.currentUser;
-  }
-
-  ngOnInit(): void {
-    /*     this.isLoading$ = this.store.select(getAllLoaded);
-     */
-  }
+  ngOnInit(): void {}
 }
