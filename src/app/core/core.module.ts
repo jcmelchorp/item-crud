@@ -28,7 +28,6 @@ import { AboutComponent } from './components/about/about.component';
     NotFoundComponent,
     PrivacyPolicyComponent,
     UnderConstructionComponent,
-    WellcomeComponent,
   ],
   imports: [
     CommonModule,
@@ -48,7 +47,6 @@ import { AboutComponent } from './components/about/about.component';
     NotFoundComponent,
     PrivacyPolicyComponent,
     UnderConstructionComponent,
-    WellcomeComponent,
   ],
 })
 export class CoreModule {}

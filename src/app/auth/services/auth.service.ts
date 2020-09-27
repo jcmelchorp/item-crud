@@ -1,22 +1,58 @@
+import { switchMap } from 'rxjs/operators';
+import {
+  AngularFirestore,
+  AngularFirestoreDocument,
+} from '@angular/fire/firestore';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { from, Observable } from 'rxjs';
+import { from, Observable, of } from 'rxjs';
 import * as firebase from 'firebase/app';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { User } from '../models/user.model';
+import { Router } from '@angular/router';
 // import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  user$: Observable<firebase.User>;
+  user$: Observable<User>;
   constructor(
     private afAuth: AngularFireAuth,
-    private db: AngularFireDatabase
+    private db: AngularFireDatabase,
+    private afs: AngularFirestore,
+    private router: Router
   ) {
+    this.user$ = this.afAuth.authState.pipe(
+      switchMap((user) => {
+        if (user) {
+          return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
+        } else {
+          return of(null);
+        }
+      })
+    );
+
     /* this.initClient();
     this.user$ = afAuth.authState; */
   }
+
+  updateUserData(user: User) {
+    const userRef: AngularFirestoreDocument<User> = this.afs.doc(
+      `users/${user.uid}`
+    );
+    const data: User = {
+      uid: user.uid,
+      displayName: user.displayName,
+      email: user.email,
+      providerId: user.providerId,
+      photoUrl: user.photoUrl,
+      isAdmin: user.isAdmin,
+      isNewUser: user.isNewUser,
+      isOnline: user.isOnline,
+    };
+    return userRef.set(data, { merge: true });
+  }
+
   // Initialize the Google API client with desired scopes
   /* initClient() {
     gapi.load('client', () => {
@@ -99,7 +135,11 @@ export class AuthService {
     if (authProvider === 'twitter') {
       provider = new firebase.auth.TwitterAuthProvider();
     }
-    return from(this.afAuth.signInWithPopup(provider));
+    const cred = this.afAuth.signInWithPopup(provider);
+    /* cred.then((credential) => {
+      this.updateUserData(credential.user);
+    }); */
+    return from(cred);
   }
 
   logout(uid: string): Observable<void> {

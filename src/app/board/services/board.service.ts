@@ -1,35 +1,55 @@
-import { AngularFireDatabase } from '@angular/fire/database';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireDatabase } from '@angular/fire/database';
 import { AngularFirestore, DocumentReference } from '@angular/fire/firestore';
+import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
-import { Observable } from 'rxjs';
+import { from, Observable, of } from 'rxjs';
 import { switchMap, map } from 'rxjs/operators';
-import { Board, Task } from './board.model';
+import { Board } from '../models/board.model';
+import { Task } from '../models/task.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BoardService {
-  constructor(private afAuth: AngularFireAuth, private db: AngularFirestore) {}
-
+  private userId: string;
+  private userTkn: string;
+  constructor(
+    private afAuth: AngularFireAuth,
+    private afs: AngularFirestore,
+    private db: AngularFireDatabase,
+    private router: Router
+  ) {
+    this.afAuth.authState.subscribe((user) => {
+      if (user) {
+        this.userId = user.uid;
+        this.userTkn = user.refreshToken;
+      }
+    });
+  }
   /**
    * Creates a new board for the current user
    */
-  async createBoard(data: Board): Promise<DocumentReference> {
-    const user = await this.afAuth.currentUser;
-    return this.db.collection('boards').add({
+  async createBoard(board: Board) {
+    return this.db.list(`boards/${this.userId}`).push(board);
+    /* return this.db.collection('boards').add({
       ...data,
       uid: user.uid,
       tasks: [{ description: 'Hello!', label: 'yellow' }],
-    });
+    }); */
+  }
+
+  getAll() {
+    return this.db.list(`items/${this.userId}`).snapshotChanges();
   }
 
   /**
    * Get all boards owned by current user
    */
-  getUserBoards(): any {
-    return this.afAuth.authState.pipe(
+  getUserBoards() {
+    return this.db.list(`items/${this.userId}`).snapshotChanges();
+    /* return this.afAuth.authState.pipe(
       switchMap((user) => {
         if (user) {
           return this.db
@@ -42,7 +62,7 @@ export class BoardService {
         }
       })
       // map(boards => boards.sort((a, b) => a.priority - b.priority))
-    );
+    ); */
   }
 
   /**
@@ -59,26 +79,27 @@ export class BoardService {
   /**
    * Delete board
    */
-  deleteBoard(boardId: string): Promise<void> {
-    return this.db.collection('boards').doc(boardId).delete();
+  deleteBoard(boardId: string) {
+    return this.db.object(`boards/${this.userId}/${boardId}`).remove;
+    // return this.db.collection('boards').doc(boardId).delete();
   }
 
   /**
    * Updates the tasks on board
    */
-  updateTasks(boardId: string, tasks: Task[]): Promise<void> {
+  /* updateTasks(boardId: string, tasks: Task[]): Promise<void> {
     return this.db.collection('boards').doc(boardId).update({ tasks });
-  }
+  } */
 
   /**
    * Remove a specifc task from the board
    */
-  removeTask(boardId: string, task: Task): Promise<void> {
+  /* removeTask(boardId: string, task: Task): Promise<void> {
     return this.db
       .collection('boards')
       .doc(boardId)
       .update({
         tasks: firebase.firestore.FieldValue.arrayRemove(task),
       });
-  }
+  } */
 }

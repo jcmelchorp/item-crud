@@ -7,48 +7,27 @@
       <!--buttons disappear on Xs devices-->
       <div *ngIf="!deviceXs && isLoggedIn && !isLoading">
         <button mat-button [routerLink]="['/items']">Items</button>
-        <button mat-button [routerLink]="['/kanban']">TaskBoards</button>
+        <button mat-button [routerLink]="['/board/all']">Board</button>
       </div>
       <!---->
     </div>
     <div fxLayout="row">
-      <button
-        *ngIf="isLoggedIn && !isLoading"
-        mat-icon-button
-        [matMenuTriggerFor]="useractions"
-        aria-label="Example icon-button with a menu"
-        class="mx-1"
-      >
-        <img
-          class="img-fluid img-thumbnail rounded-circle"
-          src="{{ user.photoUrl }}"
-        />
+      <button *ngIf="isLoggedIn && !isLoading" mat-icon-button [matMenuTriggerFor]="useractions"
+        aria-label="Example icon-button with a menu" class="mx-1">
+        <img class="img-fluid img-thumbnail rounded-circle" src="{{ user.photoUrl }}" />
       </button>
-      <button
-        *ngIf="!isLoggedIn && !isLoading"
-        mat-icon-button
-        [matMenuTriggerFor]="users"
-        aria-label="Example icon-button with a menu"
-        class="mx-1"
-      >
+      <button *ngIf="!isLoggedIn && !isLoading" mat-icon-button [matMenuTriggerFor]="users"
+        aria-label="Example icon-button with a menu" class="mx-1">
         <fa-icon [icon]="userIcon" size="lg"></fa-icon>
       </button>
-      <button
-        mat-icon-button
-        [matMenuTriggerFor]="menu"
-        aria-label="Example icon-button with a menu"
-        class="mx-1"
-      >
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" class="mx-1">
         <fa-icon [icon]="dots" size="lg"></fa-icon>
       </button>
     </div>
   </mat-toolbar-row>
-  <mat-toolbar-row
-    *ngIf="deviceXs && isLoggedIn && !isLoading"
-    fxLayoutAlign="space-between center"
-  >
+  <mat-toolbar-row *ngIf="deviceXs && isLoggedIn && !isLoading" fxLayoutAlign="space-between center">
     <button mat-button [routerLink]="['/items']">Items</button>
-    <button mat-button [routerLink]="['/kanban']">TaskBoards</button>
+    <button mat-button [routerLink]="['/board/all']">Board</button>
   </mat-toolbar-row>
 </mat-toolbar>
 <!-- Menu Items -->

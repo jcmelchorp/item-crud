@@ -10,23 +10,15 @@ export function itemReducer(
 ): ItemsState {
   switch (action.type) {
     case ItemsActionTypes.ITEMS_QUERY: {
-      return Object.assign({}, state, {
-        loading: true,
-      });
+      return { ...state, loading: true };
     }
 
     case ItemsActionTypes.ITEMS_LOADED: {
-      return Object.assign({}, state, {
-        items: action.payload.items,
-        loading: false,
-      });
+      return { ...state, items: action.payload.items, loading: false };
     }
 
     case ItemsActionTypes.ITEMS_ERROR: {
-      return Object.assign({}, state, {
-        loading: false,
-        error: action.payload.error,
-      });
+      return { ...state, loading: false, error: action.payload.error };
     }
 
     default:

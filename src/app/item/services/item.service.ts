@@ -3,24 +3,31 @@ import { HttpClient } from '@angular/common/http';
 import { from, Observable, of } from 'rxjs';
 import { Item } from '../models/item.model';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class ItemService {
-  items$: Observable<Item[]>;
+  items$: Observable<Item[]> = null;
+  private userId: string;
+  private userTkn: string;
   constructor(
     private httpClient: HttpClient,
     private db: AngularFireDatabase,
     private afAuth: AngularFireAuth
   ) {
-    //this.userId;
+    this.afAuth.authState.subscribe((user) => {
+      if (user) {
+        this.userId = user.uid;
+        this.userTkn = user.refreshToken;
+      }
+    });
   }
-  get userId(): Observable<firebase.User> {
+  /* get userId(): Observable<firebase.User> {
     if (this.afAuth.currentUser) {
       return from(this.afAuth.currentUser);
     }
-  }
+  } */
   addItem(item: Item, userId: string) {
     const items = this.db.list(`items/${userId}`);
     return items.push(item);
@@ -32,8 +39,8 @@ export class ItemService {
     });
   }
 
-  get(userId: string) {
-    return this.db.list(`items/${userId}`).snapshotChanges();
+  getAll(userId: string) {
+    return this.db.list<Item>(`items/${userId}`).snapshotChanges();
   }
 
   update(item: Item, userId: string) {

@@ -17,7 +17,6 @@ import { environment } from 'src/environments/environment';
 import { CoreModule } from './core/core.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AuthModule } from './auth/auth.module';
-import { ItemModule } from './item/item.module';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({

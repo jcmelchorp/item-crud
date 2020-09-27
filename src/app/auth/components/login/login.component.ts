@@ -15,7 +15,7 @@ import {
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
   hide = true;
@@ -25,43 +25,54 @@ export class LoginComponent implements OnInit {
   google = faGoogle;
   error$: Observable<string | null> | undefined;
 
-  constructor(private store: Store<AppState>) { }
+  constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', Validators.required)
+      password: new FormControl('', Validators.required),
     });
 
-    this.error$ = this.store
-      .pipe(
-        select(getError),
-        map((error: any) => {
-          if (error && (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password')) {
-            return 'Invalid login or password';
-          } else {
-            return null;
-          }
-        })
-      );
+    this.error$ = this.store.pipe(
+      select(getError),
+      map((error: any) => {
+        if (
+          error &&
+          (error.code === 'auth/user-not-found' ||
+            error.code === 'auth/wrong-password')
+        ) {
+          return 'Invalid login or password';
+        } else {
+          return null;
+        }
+      })
+    );
   }
 
   // tslint:disable-next-line: typedef
-  get email() { if (this.loginForm !== undefined) { return this.loginForm.get('email'); } else { return null; } }
+  get email() {
+    if (this.loginForm !== undefined) {
+      return this.loginForm.get('email');
+    } else {
+      return null;
+    }
+  }
   // tslint:disable-next-line: typedef
-  get password() { if (this.loginForm !== undefined) { return this.loginForm.get('password'); } else { return null; } }
+  get password() {
+    if (this.loginForm !== undefined) {
+      return this.loginForm.get('password');
+    } else {
+      return null;
+    }
+  }
 
   onLogin(): void {
-    if (this.loginForm !== undefined) {
-      if (this.loginForm.valid) {
-        this.store.dispatch(new actions.LoginRequested(this.loginForm.value));
-      }
+    if (this.loginForm.valid) {
+      this.store.dispatch(new actions.LoginRequested(this.loginForm.value));
     }
   }
 
   onSocialLogin(authProvider: string): void {
     this.store.dispatch(new actions.SocialLogin({ authProvider }));
   }
-
-
 }

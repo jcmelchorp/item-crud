@@ -4,5 +4,27 @@ service cloud.firestore {
     match /{document=**} {
       allow read, write: if false;
     }
+    match /users/{userId} {
+      allow read: if isLoggedIn();
+      allow write: if isOwner(userId);
+      //allow update: if existingData().locked == false;
+      //allow update: if incommingData().price>10;
+    }
+    // Function to determinate document ownership
+    function isOwner(userId) {
+      return request.auth.uid == userId;
+    }
+    // Function to determinate logged user
+    function isLoggedIn() {
+      return request.auth != null;
+    }
+    function existingData(){
+      return resource.data;
+    }
+    function incommingData(){
+      return request.resource.data;
+      }
+
+
   }
 }

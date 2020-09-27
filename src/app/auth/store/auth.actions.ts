@@ -26,13 +26,15 @@ export enum AuthActionTypes {
 
   GET_USER = '[Auth] GET User',
 
-  AUTH_ERROR = '[Auth] Error'
+  AUTH_ERROR = '[Auth] Error',
 }
 
 export class RegisterRequested implements Action {
   readonly type = AuthActionTypes.REGISTER_REQUESTED;
 
-  constructor(public payload: { username: string, email: string; password: string }) {}
+  constructor(
+    public payload: { username: string; email: string; password: string }
+  ) {}
 }
 
 export class RegisterCompleted implements Action {
@@ -48,7 +50,7 @@ export class RegisterFailed implements Action {
 export class UpdateProfile implements Action {
   readonly type = AuthActionTypes.UPDATE_PROFILE;
 
-  constructor(public payload: { displayName: string, photoUrl: string }) {}
+  constructor(public payload: { displayName: string; photoUrl: string }) {}
 }
 
 export class UpdateProfileSuccess implements Action {
@@ -98,7 +100,7 @@ export class SaveUser implements Action {
 export class UpdateOnlineStatus implements Action {
   readonly type = AuthActionTypes.UPDATE_ONLINE_STATUS;
 
-  constructor(public payload: { uid: string, status: boolean }) {}
+  constructor(public payload: { uid: string; status: boolean }) {}
 }
 
 export class CheckUserRole implements Action {

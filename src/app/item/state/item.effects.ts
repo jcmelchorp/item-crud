@@ -29,7 +29,7 @@ export class ItemEffect {
     ofType(ItemsActionTypes.ITEMS_QUERY),
     withLatestFrom(this.store.pipe(select(getUser))),
     switchMap(([, user]: any) => {
-      return this.itemService.get(user.uid).pipe(
+      return this.itemService.getAll(user.uid).pipe(
         map((data: any) => {
           const itemsData: Item[] = data.map((res: any) => {
             const key = res.payload.key;

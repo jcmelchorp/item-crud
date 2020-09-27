@@ -2,25 +2,24 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Subscription } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
-import { BoardDialogComponent } from '../dialogs/board-dialog.component';
-import { Board } from '../board.model';
-import { BoardService } from '../board.service';
-
+import { Board } from '../../models/board.model';
+import { BoardService } from '../../services/board.service';
+import { BoardDialogComponent } from '../board-dialog/board-dialog.component';
 @Component({
-  selector: 'app-boards-list',
-  templateUrl: './boards-list.component.html',
-  styleUrls: ['./boards-list.component.scss'],
+  selector: 'app-boards',
+  templateUrl: './boards.component.html',
+  styleUrls: ['./boards.component.scss'],
 })
-export class BoardsListComponent implements OnInit, OnDestroy {
+export class BoardsComponent implements OnInit, OnDestroy {
   boards: Board[];
   sub: Subscription;
 
   constructor(public boardService: BoardService, public dialog: MatDialog) {}
 
   ngOnInit() {
-    this.sub = this.boardService
-      .getUserBoards()
-      .subscribe((boards) => (this.boards = boards));
+    this.sub = this.boardService.getAll().subscribe((boards) => {
+      /* this.boards = boards */
+    });
   }
 
   drop(event: CdkDragDrop<string[]>): void {
@@ -44,7 +43,7 @@ export class BoardsListComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.sub.unsubscribe();
   }
 }

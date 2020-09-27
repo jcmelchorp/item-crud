@@ -32,13 +32,12 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatTreeModule } from '@angular/material/tree';
 
-
 @NgModule({
   declarations: [],
   imports: [
     MatCheckboxModule,
-    MatCheckboxModule,
     MatButtonModule,
+    MatButtonToggleModule,
     MatInputModule,
     MatAutocompleteModule,
     MatDatepickerModule,
@@ -57,7 +56,6 @@ import { MatTreeModule } from '@angular/material/tree';
     MatStepperModule,
     MatTabsModule,
     MatExpansionModule,
-    MatButtonToggleModule,
     MatChipsModule,
     MatIconModule,
     MatProgressSpinnerModule,
@@ -70,13 +68,12 @@ import { MatTreeModule } from '@angular/material/tree';
     MatPaginatorModule,
     MatTreeModule,
     MatIconModule,
-    MatButtonModule,
-    MatTableModule
+    MatTableModule,
   ],
   exports: [
     MatCheckboxModule,
-    MatCheckboxModule,
     MatButtonModule,
+    MatButtonToggleModule,
     MatInputModule,
     MatAutocompleteModule,
     MatDatepickerModule,
@@ -95,7 +92,6 @@ import { MatTreeModule } from '@angular/material/tree';
     MatStepperModule,
     MatTabsModule,
     MatExpansionModule,
-    MatButtonToggleModule,
     MatChipsModule,
     MatIconModule,
     MatProgressSpinnerModule,
@@ -108,8 +104,7 @@ import { MatTreeModule } from '@angular/material/tree';
     MatPaginatorModule,
     MatTreeModule,
     MatIconModule,
-    MatButtonModule,
-    MatTableModule
-  ]
+    MatTableModule,
+  ],
 })
-export class MaterialModule { }
+export class MaterialModule {}
