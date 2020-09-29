@@ -31,6 +31,11 @@ import { SharedModule } from './shared/shared.module';
     AuthModule,
     AdminModule,
     SharedModule,
+
+    /* GoogleApiModule.forRoot({
+      provide: NG_GAPI_CONFIG,
+      useValue: gapiClientConfig,
+    }), */
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFireDatabaseModule,

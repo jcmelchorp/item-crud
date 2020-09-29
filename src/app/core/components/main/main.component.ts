@@ -1,3 +1,4 @@
+import { GoogleApiService } from './../../../auth/services/google-api.service';
 import { getUser } from 'src/app/auth/store/auth.selectors';
 import { getAuthState } from './../../../auth/store/auth.selectors';
 import { Component, OnInit } from '@angular/core';
@@ -23,9 +24,12 @@ export class MainComponent implements OnInit {
   @Input() user: User;
 
   constructor(
+    public googleApiService: GoogleApiService,
     private afAuth: AngularFireAuth,
     private store: Store<AppState>
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    //this.googleApiService.getCalendar();
+  }
 }

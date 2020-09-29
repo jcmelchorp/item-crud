@@ -1,3 +1,4 @@
+import { GoogleApiService } from './services/google-api.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
@@ -26,6 +27,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     EffectsModule.forFeature([AuthEffects]),
   ],
   declarations: [RegisterComponent, LoginComponent],
-  providers: [AuthService],
+  providers: [AuthService, GoogleApiService],
 })
 export class AuthModule {}

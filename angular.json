@@ -25,6 +25,7 @@
               "@firebase/component",
               "@firebase/util",
               "@firebase/database",
+              "@angular/fire/firestore",
               "@firebase/firestore",
               "@firebase/auth"
             ],
