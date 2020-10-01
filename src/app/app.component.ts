@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostBinding } from '@angular/core';
 import { MediaObserver, MediaChange } from '@angular/flex-layout';
 import { Store } from '@ngrx/store';
 import { Subscription, Observable } from 'rxjs';
@@ -25,7 +25,6 @@ export class AppComponent implements OnInit, OnDestroy {
   isLoggedIn$: Observable<boolean>;
   isLoading$: Observable<boolean>;
   isAdmin$: Observable<boolean>;
-
   constructor(
     private store: Store<AppState>,
     public mediaObserver: MediaObserver

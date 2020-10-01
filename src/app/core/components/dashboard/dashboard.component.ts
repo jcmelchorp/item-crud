@@ -1,132 +1,82 @@
+import { BoardService } from './../../../board/services/board.service';
+import { ItemService } from './../../../item/services/item.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription, empty } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { switchMap, take } from 'rxjs/operators';
 import { AppState } from 'src/app/reducers';
+import { getUser } from 'src/app/auth/store/auth.selectors';
+import { Item } from 'src/app/item/models/item.model';
+import { Board } from 'src/app/board/models/board.model';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit, OnDestroy {
-  projectsSub: Subscription;
-  /*   projects = [
-      {
-        title: 'Project 1',
-        description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit.',
-        photoUrl:
-          'https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(97).jpg'
-      },
-      {
-        title: 'Project 2',
-        description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit.',
-        photoUrl:
-          'https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(98).jpg'
-      },
-      {
-        title: 'Project 3',
-        description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit.',
-        photoUrl:
-          'https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(99).jpg'
-      },
-      {
-        title: 'Project 4',
-        description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit.',
-        photoUrl:
-          'https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(95).jpg'
-      }
-    ];
+  itemSub: Subscription;
 
-    customersSub: Subscription;
-    customers: Customer[] = [
-      {
-        id: 1,
-        name: 'Example customer 1',
-        description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit.'
-      },
-      {
-        id: 2,
-        name: 'Example customer 2',
-        description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit.'
-      },
-      {
-        id: 3,
-        name: 'Example customer 3',
-        description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit.'
-      },
-      {
-        id: 4,
-        name: 'Example customer 4',
-        description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit.'
-      },
-      {
-        id: 5,
-        name: 'Example customer 5',
-        description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit.'
-      }
-    ]; */
+  boardSub: Subscription;
 
   constructor(
     private store: Store<AppState>,
-  ) {
-
-  }
-
-
+    private itemService: ItemService,
+    private boardService: BoardService
+  ) {}
 
   ngOnInit(): void {
-    /*     this.initProjects();
-        this.initCustomers(); */
+    this.initItems();
+    this.initBoards();
   }
 
   ngOnDestroy(): void {
-    /*  if (this.projectsSub) {
-       this.projectsSub.unsubscribe();
-     }
+    if (this.itemSub) {
+      this.itemSub.unsubscribe();
+    }
 
-     if (this.customersSub) {
-       this.customersSub.unsubscribe();
-     } */
+    if (this.boardSub) {
+      this.boardSub.unsubscribe();
+    }
   }
 
-  /* initProjects() {
-    this.projectsSub = this.store
+  initItems() {
+    this.itemSub = this.store
       .pipe(
         select(getUser),
         switchMap((user: any) => {
           if (user) {
-            return this.projectsService.get(user.uid);
+            return this.itemService.getAll(user.uid);
           } else {
             return empty();
           }
         }),
         take(1)
       )
-      .subscribe(projects => {
-        if (projects.length === 0) {
-          this.projectsService.addProjects(this.projects);
+      .subscribe((items) => {
+        if (items.length === 0) {
+          //this.itemService.addItems(this.items);
         }
       });
-  } */
+  }
 
-  /* initCustomers() {
-    this.customersSub = this.store
+  initBoards() {
+    this.boardSub = this.store
       .pipe(
         select(getUser),
         switchMap((user: any) => {
           if (user) {
-            return this.customersService.get(user.uid);
+            return this.boardService.getAll(/* user.uid */);
           } else {
             return empty();
           }
         }),
         take(1)
       )
-      .subscribe(customers => {
-        if (customers.length === 0) {
-          this.customersService.addCustomers(this.customers);
+      .subscribe((board) => {
+        if (board.length === 0) {
+          //this.boardService.addCustomers(this.board);
         }
       });
-  } */
+  }
 }

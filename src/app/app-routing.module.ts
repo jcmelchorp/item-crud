@@ -41,6 +41,11 @@ const routes: Routes = [
           import('./board/board.module').then((m) => m.BoardModule),
         canActivate: [AuthGuard],
       },
+      {
+        path: 'classroom',
+        loadChildren: () =>
+          import('./classroom/classroom.module').then((m) => m.ClassroomModule),
+      },
     ],
   },
   { path: 'login', component: LoginComponent },
@@ -48,6 +53,7 @@ const routes: Routes = [
   { path: 'privacy-policy', component: PrivacyPolicyComponent },
   { path: 'under-construction', component: UnderConstructionComponent },
   { path: 'register', component: RegisterComponent },
+
   { path: '**', component: NotFoundComponent },
 ];
 

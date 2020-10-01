@@ -9,25 +9,7 @@
 <div>
   <div fxLayout="row" fxLayoutAlign="space-between center">
     <div>
-      <!--       <div *ngIf="googleApiService.user$ | async as user">
-        <h3>Bienvenido {{user.displayName}}</h3>
-        <img src="{{user.photoURL}}" width="50px">
-      </div> -->
     </div>
     <div>
-      <h3>Google Calendar and Firebase</h3>
-
-      <button (click)="googleApiService.login()">Login</button>
-      <button (click)="googleApiService.logout()">Logout</button>
-      <hr>
-      <button (click)="googleApiService.getCalendar()">Get Calendar</button>
-      <button (click)="googleApiService.insertEvent()">Add Event</button>
-      <div *ngFor="let item of googleApiService.calendarItems">
-        <h3>{{item.summary}} - {{item.status}}</h3>
-        <p><em>Created {{item.created}}</em></p>
-        <p>{{item.description}}</p>
-        <hr>
-      </div>
     </div>
-
   </div>

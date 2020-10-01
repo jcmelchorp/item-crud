@@ -1,6 +1,6 @@
 import { AppState } from './../../../reducers/index';
 import { NotificationService } from './../../services/notification.service';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Component, Input, OnInit } from '@angular/core';
 import {
   FormBuilder,
@@ -11,9 +11,9 @@ import {
 import { v1 as uuid } from 'uuid';
 import { Item } from '../../models/item.model';
 import { select, Store } from '@ngrx/store';
-import * as itemActions from '../../state/item.actions';
-import * as fromItem from '../../state/item.reducer';
-import { getAllLoaded, getItems } from '../../state/item.selectors';
+import * as itemActions from '../../store/item.actions';
+import * as fromItem from '../../store/item.reducer';
+import { getAllLoaded, getItems } from '../../store/item.selectors';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { map } from 'rxjs/operators';
 
@@ -26,7 +26,7 @@ export class SaveItemComponent implements OnInit {
   itemForm: FormGroup;
   @Input() item: Item;
   items$: Observable<Item[] | null>;
-  isLoading$: Observable<boolean>;
+  destroy$: Subject<boolean> = new Subject<boolean>();
   constructor(
     private formBuilder: FormBuilder,
     private store: Store<AppState>,
@@ -45,11 +45,15 @@ export class SaveItemComponent implements OnInit {
         return items;
       })
     );
-
-    //this.selectCurrentItem();
   }
   get user(): Promise<firebase.User> {
     return this.afAuth.currentUser;
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next(true);
+    // Unsubscribe from the subject
+    this.destroy$.unsubscribe();
   }
   initializeForm(): void {
     this.itemForm = this.formBuilder.group({
@@ -62,7 +66,6 @@ export class SaveItemComponent implements OnInit {
   }
 
   selectCurrentItem(): void {
-    this.isLoading$ = this.store.select(getAllLoaded);
     /* this.item: Observable<Item> = this.store.select(getItem);
     item.subscribe((currentItem) => {
       if (currentItem) {

@@ -1,3 +1,4 @@
+import { BoardService } from './board/services/board.service';
 import { AdminModule } from './admin/admin.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -18,6 +19,8 @@ import { CoreModule } from './core/core.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AuthModule } from './auth/auth.module';
 import { SharedModule } from './shared/shared.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ItemService } from './item/services/item.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -31,7 +34,7 @@ import { SharedModule } from './shared/shared.module';
     AuthModule,
     AdminModule,
     SharedModule,
-
+    ReactiveFormsModule,
     /* GoogleApiModule.forRoot({
       provide: NG_GAPI_CONFIG,
       useValue: gapiClientConfig,
@@ -50,7 +53,7 @@ import { SharedModule } from './shared/shared.module';
     }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],
-  providers: [],
+  providers: [ItemService, BoardService, AuthModule],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

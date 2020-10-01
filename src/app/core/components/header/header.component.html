@@ -8,13 +8,14 @@
       <div *ngIf="!deviceXs && isLoggedIn && !isLoading">
         <button mat-button [routerLink]="['/items']">Items</button>
         <button mat-button [routerLink]="['/board/all']">Board</button>
+        <button mat-button [routerLink]="['/classroom']">Classroom</button>
       </div>
       <!---->
     </div>
     <div fxLayout="row">
       <button *ngIf="isLoggedIn && !isLoading" mat-icon-button [matMenuTriggerFor]="useractions"
         aria-label="Example icon-button with a menu" class="mx-1">
-        <img class="img-fluid img-thumbnail rounded-circle" src="{{ user.photoUrl }}" />
+        <img class="img-thumbnail rounded-circle" src="{{ user.photoUrl }}" />
       </button>
       <button *ngIf="!isLoggedIn && !isLoading" mat-icon-button [matMenuTriggerFor]="users"
         aria-label="Example icon-button with a menu" class="mx-1">
@@ -28,6 +29,8 @@
   <mat-toolbar-row *ngIf="deviceXs && isLoggedIn && !isLoading" fxLayoutAlign="space-between center">
     <button mat-button [routerLink]="['/items']">Items</button>
     <button mat-button [routerLink]="['/board/all']">Board</button>
+    <button mat-button [routerLink]="['/classroom']">Classroom</button>
+
   </mat-toolbar-row>
 </mat-toolbar>
 <!-- Menu Items -->

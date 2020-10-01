@@ -1,3 +1,4 @@
+import { GoogleApiService } from 'src/app/auth/services/google-api.service';
 import { switchMap } from 'rxjs/operators';
 import {
   AngularFirestore,
@@ -20,6 +21,7 @@ export class AuthService {
     private afAuth: AngularFireAuth,
     private db: AngularFireDatabase,
     private afs: AngularFirestore,
+    private googleApiService: GoogleApiService,
     private router: Router
   ) {
     this.user$ = this.afAuth.authState.pipe(
@@ -135,11 +137,12 @@ export class AuthService {
     if (authProvider === 'twitter') {
       provider = new firebase.auth.TwitterAuthProvider();
     }
-    const cred = this.afAuth.signInWithPopup(provider);
+    return from(this.afAuth.signInWithPopup(provider));
     /* cred.then((credential) => {
       this.updateUserData(credential.user);
     }); */
-    return from(cred);
+    /* const cred = this.googleApiService.login();
+    return from(cred); */
   }
 
   logout(uid: string): Observable<void> {

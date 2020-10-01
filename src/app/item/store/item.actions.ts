@@ -1,6 +1,5 @@
 import { Action } from '@ngrx/store';
 import { Item } from '../models/item.model';
-import { Update } from '@ngrx/entity';
 
 export enum ItemsActionTypes {
   ITEMS_QUERY = '[Items] Items query',

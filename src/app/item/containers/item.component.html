@@ -1,11 +1,17 @@
-<div class="px-5 py-3">
-  <p class="display-4">Items</p>
+<div class="" fxLayoutAlign="center center">
+  <mat-spinner *ngIf="loading$"></mat-spinner>
 </div>
-<div class="px-5">
-  <div class="p-5">
-    <app-save-item (itemEmited)="onItemEdited($event)"></app-save-item>
+<div *ngIf="!loading$">
+  <div class="px-5 py-3">
+    <p class="display-4">Items</p>
   </div>
-  <app-item-list [items]="items$ | async">
-  </app-item-list>
+  <div class="px-5">
+    <div class="p-5">
+      <app-save-item (itemEmited)="onItemEdited($event)"></app-save-item>
+    </div>
+    <app-item-list [items]="items$ | async">
+    </app-item-list>
+  </div>
+  <div class="p-5"></div>
+
 </div>
-<div class="p-5"></div>

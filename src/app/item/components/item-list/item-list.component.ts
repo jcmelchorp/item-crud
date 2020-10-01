@@ -9,13 +9,13 @@ import {
 import { Observable } from 'rxjs';
 import { Item } from '../../models/item.model';
 import { Store, select } from '@ngrx/store';
-import * as itemActions from '../../state/item.actions';
-import * as fromItem from '../../state/item.reducer';
+import * as itemActions from '../../store/item.actions';
+import * as fromItem from '../../store/item.reducer';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmItemComponent } from '../confirm-item/confirm-item.component';
 import { NotificationService } from '../../services/notification.service';
 import { AppState } from 'src/app/reducers';
-import { getError, getItems } from '../../state/item.selectors';
+import { getError, getItems } from '../../store/item.selectors';
 
 @Component({
   selector: 'app-item-list',
@@ -76,7 +76,7 @@ export class ItemListComponent implements OnInit {
 
   editItem(item: Item): void {
     this.itemEdited.emit(item);
-    //this.store.dispatch(new itemActions.ItemEdited({ item }));
+    this.store.dispatch(new itemActions.ItemEdited({ item }));
   }
 
   toggleIsActive(item: Item): void {

@@ -1,15 +1,17 @@
 import { authInitialState, AuthState } from './auth.state';
 import { AuthAction, AuthActionTypes } from './auth.actions';
 
-export function authReducer(state = authInitialState, action: AuthAction): AuthState {
+export function authReducer(
+  state = authInitialState,
+  action: AuthAction
+): AuthState {
   switch (action.type) {
-
     case AuthActionTypes.LOGIN_SUCCESS: {
       return Object.assign({}, state, {
         user: action.payload.user,
         isLoggedIn: true,
         isLoading: false,
-        error: null
+        error: null,
       });
     }
 
@@ -21,7 +23,7 @@ export function authReducer(state = authInitialState, action: AuthAction): AuthS
 
     case AuthActionTypes.UPDATE_USER_ROLE: {
       return Object.assign({}, state, {
-        isAdmin: action.payload.isAdmin
+        isAdmin: action.payload.isAdmin,
       });
     }
 
@@ -29,13 +31,13 @@ export function authReducer(state = authInitialState, action: AuthAction): AuthS
       return Object.assign({}, state, {
         user: null,
         isLoading: false,
-        isLoggedIn: false
+        isLoggedIn: false,
       });
     }
 
     case AuthActionTypes.AUTH_ERROR: {
       return Object.assign({}, state, {
-        error: action.payload.error
+        error: action.payload.error,
       });
     }
 
@@ -43,7 +45,7 @@ export function authReducer(state = authInitialState, action: AuthAction): AuthS
       return Object.assign({}, state, {
         user: null,
         isLoading: false,
-        isLoggedIn: false
+        isLoggedIn: false,
       });
     }
 

@@ -1,6 +1,4 @@
 import * as itemActions from './item.actions';
-import { Item } from '../models/item.model';
-import * as fromRoot from '../../reducers/index';
 import { Actions, ItemsActionTypes } from './item.actions';
 import { itemsInitialState, ItemsState } from './item.state';
 
@@ -10,7 +8,10 @@ export function itemReducer(
 ): ItemsState {
   switch (action.type) {
     case ItemsActionTypes.ITEMS_QUERY: {
-      return { ...state, loading: true };
+      return Object.assign({}, state, {
+        loading: true,
+        error: null,
+      });
     }
 
     case ItemsActionTypes.ITEMS_LOADED: {

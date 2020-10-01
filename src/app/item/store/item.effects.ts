@@ -10,11 +10,10 @@ import {
   withLatestFrom,
 } from 'rxjs/operators';
 import { ItemService } from '../services/item.service';
-import * as fromItems from './../state/item.actions';
 import { Item } from '../models/item.model';
 import { getUser } from 'src/app/auth/store/auth.selectors';
 import { AppState } from 'src/app/reducers';
-import { ItemsActionTypes } from './../state/item.actions';
+import * as fromItems from './item.actions';
 
 @Injectable()
 export class ItemEffect {
@@ -26,7 +25,7 @@ export class ItemEffect {
 
   @Effect()
   query$ = this.actions$.pipe(
-    ofType(ItemsActionTypes.ITEMS_QUERY),
+    ofType(fromItems.ItemsActionTypes.ITEMS_QUERY),
     withLatestFrom(this.store.pipe(select(getUser))),
     switchMap(([, user]: any) => {
       return this.itemService.getAll(user.uid).pipe(
@@ -51,7 +50,7 @@ export class ItemEffect {
 
   @Effect({ dispatch: false })
   added$ = this.actions$.pipe(
-    ofType(ItemsActionTypes.ITEM_ADDED),
+    ofType(fromItems.ItemsActionTypes.ITEM_ADDED),
     map((action: fromItems.ItemAdded) => action.payload),
     withLatestFrom(this.store.pipe(select(getUser))),
     switchMap(([payload, user]: any) =>
@@ -61,7 +60,7 @@ export class ItemEffect {
 
   @Effect({ dispatch: false })
   delete$ = this.actions$.pipe(
-    ofType(ItemsActionTypes.ITEM_DELETED),
+    ofType(fromItems.ItemsActionTypes.ITEM_DELETED),
     map((action: fromItems.ItemDeleted) => action.payload),
     withLatestFrom(this.store.pipe(select(getUser))),
     switchMap(([payload, user]: any) =>
@@ -71,7 +70,7 @@ export class ItemEffect {
 
   @Effect({ dispatch: false })
   edit$ = this.actions$.pipe(
-    ofType(ItemsActionTypes.ITEM_EDITED),
+    ofType(fromItems.ItemsActionTypes.ITEM_EDITED),
     map((action: fromItems.ItemEdited) => action.payload),
     withLatestFrom(this.store.pipe(select(getUser))),
     switchMap(([payload, user]: any) =>

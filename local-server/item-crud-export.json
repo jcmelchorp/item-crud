@@ -1,0 +1,498 @@
+{
+  "admins": {
+    "2NSf2LvynMeGCzkwsq3mdoQcQHJ3": true,
+    "W8DyZt3t3GXqdV3lEmbiIYD9TvN2": true
+  },
+  "boards": {
+    "2NSf2LvynMeGCzkwsq3mdoQcQHJ3": {
+      "-MIFbqLg4nAVOvoLcXBN": {
+        "priority": 0,
+        "title": "ng-matero"
+      }
+    }
+  },
+  "courses": {
+    "2NSf2LvynMeGCzkwsq3mdoQcQHJ3": {
+      "-MIAG2hPMCeiInAyeqhi": {
+        "id": "122618090548",
+        "name": "Español 4",
+        "section": "Primaria",
+        "descriptionHeading": "Español 4 Primaria",
+        "ownerId": "107661211756426306924",
+        "creationTime": "2020-08-06T13:09:13.703Z",
+        "updateTime": "2020-08-06T13:10:39.186Z",
+        "enrollmentCode": "fqxlde5",
+        "courseState": "ACTIVE",
+        "alternateLink": "https://classroom.google.com/c/MTIyNjE4MDkwNTQ4",
+        "teacherGroupEmail": "Espa_ol_4_Primaria_profesores_00252b6a@classroom.google.com",
+        "courseGroupEmail": "Espa_ol_4_Primaria_7882bcf3@classroom.google.com",
+        "teacherFolder": {
+          "id": "0Bzaw-2-Zm4ebfkpJU2swWjVwdWpERG9xM0VfVnZHWTNUM09oRWFNOXp5THFOb2piZzE5Tjg",
+          "title": "Español 4 Primaria",
+          "alternateLink": "https://drive.google.com/drive/folders/0Bzaw-2-Zm4ebfkpJU2swWjVwdWpERG9xM0VfVnZHWTNUM09oRWFNOXp5THFOb2piZzE5Tjg"
+        },
+        "guardiansEnabled": false,
+        "calendarId": "classroom113149032391522319790@group.calendar.google.com"
+      },
+      "-MIAEVgiYlTCn7Dw2cQw": {
+        "id": "118004075662",
+        "name": "Matemáticas 4",
+        "section": "Primaria",
+        "descriptionHeading": "Examen diagnóstico",
+        "ownerId": "113501138073107173044",
+        "creationTime": "2020-07-20T18:20:50.665Z",
+        "updateTime": "2020-09-30T13:44:55.487Z",
+        "courseState": "ACTIVE",
+        "alternateLink": "https://classroom.google.com/c/MTE4MDA0MDc1NjYy",
+        "teacherGroupEmail": "Examen_diagn_stico_profesores_e0fc0568@rafaeldiazserdan.net",
+        "courseGroupEmail": "Examen_diagn_stico_f0cd6eeb@rafaeldiazserdan.net",
+        "teacherFolder": {
+          "id": "0B5fF2MVl_HHZfllOZF9kXzlvdk1CSVc0S3B5UWo4ZUgtc3BhRUk1OE1hQWxIcU1wdTBLMEE"
+        },
+        "guardiansEnabled": true,
+        "calendarId": "rafaeldiazserdan.net_classroombf760208@group.calendar.google.com"
+      },
+      "-MIYNNYujDRhLdkHiab-": {
+        "id": "118004075639",
+        "name": "Español 4°",
+        "section": "Primaria",
+        "descriptionHeading": "Español Curso remedial",
+        "ownerId": "113501138073107173044",
+        "creationTime": "2020-07-20T18:19:19.427Z",
+        "updateTime": "2020-09-29T15:22:58.439Z",
+        "courseState": "ACTIVE",
+        "alternateLink": "https://classroom.google.com/c/MTE4MDA0MDc1NjM5",
+        "teacherGroupEmail": "Espa_ol_Curso_remedial_profesores_ddfae922@rafaeldiazserdan.net",
+        "courseGroupEmail": "Espa_ol_Curso_remedial_1055b905@rafaeldiazserdan.net",
+        "teacherFolder": {
+          "id": "0B5fF2MVl_HHZfl9lSk54LVVQMklCb01UU2pyYm5pOVM3bkY0OFNkbDZnTmNfMFVUb3dqaVE"
+        },
+        "guardiansEnabled": true,
+        "calendarId": "rafaeldiazserdan.net_classrooma1c19cda@group.calendar.google.com"
+      },
+      "-MIYNN6AWTFPj8qTmMhL": {
+        "id": "117783245199",
+        "name": "Personal Docente",
+        "descriptionHeading": "Personal Docente",
+        "ownerId": "116071552182567998226",
+        "creationTime": "2020-07-18T17:18:06.606Z",
+        "updateTime": "2020-07-18T17:18:05.695Z",
+        "enrollmentCode": "44x3hh5",
+        "courseState": "ACTIVE",
+        "alternateLink": "https://classroom.google.com/c/MTE3NzgzMjQ1MTk5",
+        "teacherGroupEmail": "Personal_Docente_profesores_187bc53e@rafaeldiazserdan.net",
+        "courseGroupEmail": "Personal_Docente_f37ce9ad@rafaeldiazserdan.net",
+        "teacherFolder": {
+          "id": "0B5vGpXxs5Tf9fmVVZnNwQ1RTUU85amtLRkl4YW8tZGRVTEFnRm5PVWhlT0d6YmM0QWlxUkU"
+        },
+        "guardiansEnabled": true,
+        "calendarId": "rafaeldiazserdan.net_classroom23fb2db9@group.calendar.google.com"
+      },
+      "-MIFIY14c34xmuh35v0L": {
+        "id": "117708789280",
+        "name": "Matemáticas 3",
+        "section": "Secundaria",
+        "descriptionHeading": "Matemáticas 3 Secundaria",
+        "description": "Aula virtual de Matemáticas 3 nivel Secundaria.\nEscuela Rafael Díaz Serdán",
+        "ownerId": "109366701296393968292",
+        "creationTime": "2020-07-18T00:58:47.450Z",
+        "updateTime": "2020-09-30T21:09:56.640Z",
+        "courseState": "ACTIVE",
+        "alternateLink": "https://classroom.google.com/c/MTE3NzA4Nzg5Mjgw",
+        "teacherGroupEmail": "Matem_ticas_3_Secundaria_profesores_396591bf@rafaeldiazserdan.net",
+        "courseGroupEmail": "Matem_ticas_3_Secundaria_31430336@rafaeldiazserdan.net",
+        "teacherFolder": {
+          "id": "0B2JbAeVTRJY5fjhvbi1aMmhRVE91ZjJXNTE5SFR0Q280RndxWFk3ODFhRzE5bElWZEpNb2c",
+          "title": "Matemáticas 3 Secundaria",
+          "alternateLink": "https://drive.google.com/drive/folders/0B2JbAeVTRJY5fjhvbi1aMmhRVE91ZjJXNTE5SFR0Q280RndxWFk3ODFhRzE5bElWZEpNb2c"
+        },
+        "guardiansEnabled": true,
+        "calendarId": "rafaeldiazserdan.net_classroom22688f3c@group.calendar.google.com"
+      },
+      "-MIYNHcR_ggAYqE5S3EV": {
+        "id": "117708789252",
+        "name": "Matemáticas 2",
+        "section": "Secundaria",
+        "descriptionHeading": "Matemáticas 2 Secundaria",
+        "description": "Aula virtual de Matemáticas 2 nivel Secundaria.\nEscuela Rafael Díaz Serdán",
+        "ownerId": "109366701296393968292",
+        "creationTime": "2020-07-18T00:56:49.134Z",
+        "updateTime": "2020-09-30T12:52:09.713Z",
+        "courseState": "ACTIVE",
+        "alternateLink": "https://classroom.google.com/c/MTE3NzA4Nzg5MjUy",
+        "teacherGroupEmail": "Matem_ticas_2_Secundaria_profesores_05a1d411@rafaeldiazserdan.net",
+        "courseGroupEmail": "Matem_ticas_2_Secundaria_838875d0@rafaeldiazserdan.net",
+        "teacherFolder": {
+          "id": "0B2JbAeVTRJY5flg1UzBQWUlUWS1xZGhFb3VPVzIySnVXaHBIYjk2bnRMVWVYb09FSGxReFE",
+          "title": "Matemáticas 2 Secundaria",
+          "alternateLink": "https://drive.google.com/drive/folders/0B2JbAeVTRJY5flg1UzBQWUlUWS1xZGhFb3VPVzIySnVXaHBIYjk2bnRMVWVYb09FSGxReFE"
+        },
+        "guardiansEnabled": true,
+        "calendarId": "rafaeldiazserdan.net_classroom1a6f8033@group.calendar.google.com"
+      },
+      "-MIYNMSusWLnDgY0oRr7": {
+        "id": "117701281841",
+        "name": "Taller de Informática",
+        "section": "Primaria Mayor",
+        "descriptionHeading": "Taller de Informática Primaria Mayor",
+        "description": "Ciclo: 2020 -2021",
+        "ownerId": "107680825946786896058",
+        "creationTime": "2020-07-17T20:00:14.114Z",
+        "updateTime": "2020-08-21T17:52:24.506Z",
+        "enrollmentCode": "deanymb",
+        "courseState": "ACTIVE",
+        "alternateLink": "https://classroom.google.com/c/MTE3NzAxMjgxODQx",
+        "teacherGroupEmail": "Taller_de_Inform_tica_Primaria_Mayor_profesores_f6199fe4@rafaeldiazserdan.net",
+        "courseGroupEmail": "Taller_de_Inform_tica_Primaria_Mayor_344e3d8f@rafaeldiazserdan.net",
+        "teacherFolder": {
+          "id": "0B65JsX_92iXRflBNMVBBTkx6M28waDBKd1dHSDc1d2I1ZG9neE84SnBSWjVTSE15OTExaDg"
+        },
+        "guardiansEnabled": false,
+        "calendarId": "rafaeldiazserdan.net_classroomeccf3502@group.calendar.google.com"
+      },
+      "-MIYNKaPSUq4ypM6ntyi": {
+        "id": "117701281830",
+        "name": "Informática 3",
+        "section": "Preescolar",
+        "descriptionHeading": "3° de Preescolar RDS Informática",
+        "description": "Ciclo: 2020 -2021",
+        "ownerId": "107680825946786896058",
+        "creationTime": "2020-07-17T19:59:01.751Z",
+        "updateTime": "2020-08-21T17:52:50.582Z",
+        "enrollmentCode": "yuhwteo",
+        "courseState": "ACTIVE",
+        "alternateLink": "https://classroom.google.com/c/MTE3NzAxMjgxODMw",
+        "teacherGroupEmail": "3_de_Preescolar_RDS_Inform_tica_profesores_43027976@rafaeldiazserdan.net",
+        "courseGroupEmail": "3_de_Preescolar_RDS_Inform_tica_8813b4c8@rafaeldiazserdan.net",
+        "teacherFolder": {
+          "id": "0B65JsX_92iXRfm9GY3RETDVYOXdRNkF0dnowT3BQa1VQcmNSZ29Od2wwUjk5ZDh5OEoydmc"
+        },
+        "guardiansEnabled": false,
+        "calendarId": "rafaeldiazserdan.net_classroom78e5cb5e@group.calendar.google.com"
+      },
+      "-MID4KdI6GVcCnYrCD26": {
+        "id": "117701281817",
+        "name": "Informática 2",
+        "section": "Preescolar",
+        "descriptionHeading": "2° de Preescolar RDS Informática",
+        "description": "Ciclo: 2020 -2021",
+        "ownerId": "107680825946786896058",
+        "creationTime": "2020-07-17T19:57:46.597Z",
+        "updateTime": "2020-09-25T17:10:54.192Z",
+        "enrollmentCode": "respsqz",
+        "courseState": "ACTIVE",
+        "alternateLink": "https://classroom.google.com/c/MTE3NzAxMjgxODE3",
+        "teacherGroupEmail": "2_de_Preescolar_RDS_Inform_tica_profesores_ad0aac1a@rafaeldiazserdan.net",
+        "courseGroupEmail": "2_de_Preescolar_RDS_Inform_tica_0e8f588f@rafaeldiazserdan.net",
+        "teacherFolder": {
+          "id": "0B65JsX_92iXRflFlWHVmTGxMRm11eHJzVGxUSlJ2bzZzRFlqLW8zam9hMzBOZDZPck5ZU0k"
+        },
+        "guardiansEnabled": true,
+        "calendarId": "rafaeldiazserdan.net_classroombad610ee@group.calendar.google.com"
+      },
+      "-MIYNI6YvQuXTVM6SBZa": {
+        "id": "117701281809",
+        "name": "Tecnología 6",
+        "section": "Primaria",
+        "descriptionHeading": "6° de Primaria RDS Tecnología",
+        "description": "Ciclo: 2020 -2021",
+        "ownerId": "107680825946786896058",
+        "creationTime": "2020-07-17T19:56:20.438Z",
+        "updateTime": "2020-09-22T15:13:28.421Z",
+        "enrollmentCode": "pbeqwe3",
+        "courseState": "ACTIVE",
+        "alternateLink": "https://classroom.google.com/c/MTE3NzAxMjgxODA5",
+        "teacherGroupEmail": "6_de_Primaria_RDS_Tecnolog_a_profesores_4f1ef28d@rafaeldiazserdan.net",
+        "courseGroupEmail": "6_de_Primaria_RDS_Tecnolog_a_2833f18b@rafaeldiazserdan.net",
+        "teacherFolder": {
+          "id": "0B65JsX_92iXRfmxoTENVdjVYRm9IRi02cWFNUHpncnVFV0RSMEdvblAyTVg2Z2diYTB6d0U"
+        },
+        "guardiansEnabled": false,
+        "calendarId": "rafaeldiazserdan.net_classroom0b683bf0@group.calendar.google.com"
+      },
+      "-MIYNIaX9YTOXFJkV2OY": {
+        "id": "117701281653",
+        "name": "Tecnología 5",
+        "section": "Primaria",
+        "descriptionHeading": "5° de Primaria RDS Tecnología",
+        "description": "Ciclo: 2020 -2021",
+        "ownerId": "107680825946786896058",
+        "creationTime": "2020-07-17T19:54:36.438Z",
+        "updateTime": "2020-10-01T01:56:23.772Z",
+        "enrollmentCode": "utza7uc",
+        "courseState": "ACTIVE",
+        "alternateLink": "https://classroom.google.com/c/MTE3NzAxMjgxNjUz",
+        "teacherGroupEmail": "5_de_Primaria_RDS_Tecnolog_a_profesores_3f6890cd@rafaeldiazserdan.net",
+        "courseGroupEmail": "5_de_Primaria_RDS_Tecnolog_a_0a4a7b9b@rafaeldiazserdan.net",
+        "teacherFolder": {
+          "id": "0B65JsX_92iXRflBDMnZ0cTRsRUluaE1wWm0yOVBHNllzNnRsS0tic2p1ZUNQMndjTkRWTkk"
+        },
+        "guardiansEnabled": false,
+        "calendarId": "rafaeldiazserdan.net_classroome7b449bf@group.calendar.google.com"
+      },
+      "-MIYNJ5mtS-kUbwhpMP8": {
+        "id": "117701281645",
+        "name": "Tecnología 4",
+        "section": "Primaria",
+        "descriptionHeading": "4° de Primaria RDS Tecnología",
+        "description": "Ciclo: 2020 -2021",
+        "ownerId": "107680825946786896058",
+        "creationTime": "2020-07-17T19:53:23.473Z",
+        "updateTime": "2020-09-24T22:40:15.737Z",
+        "enrollmentCode": "7bky4gs",
+        "courseState": "ACTIVE",
+        "alternateLink": "https://classroom.google.com/c/MTE3NzAxMjgxNjQ1",
+        "teacherGroupEmail": "4_de_Primaria_RDS_Tecnolog_a_profesores_030a2d4e@rafaeldiazserdan.net",
+        "courseGroupEmail": "4_de_Primaria_RDS_Tecnolog_a_563c42a5@rafaeldiazserdan.net",
+        "teacherFolder": {
+          "id": "0B65JsX_92iXRfkJNRjRYV3I2U1B0cEo5T0JRQTdfdllsX2ViMlBMRDFFbzB0UDRqbDBkTW8"
+        },
+        "guardiansEnabled": true,
+        "calendarId": "rafaeldiazserdan.net_classroomc7cc86fe@group.calendar.google.com"
+      },
+      "-MIYNJadkWWmNK7s10LX": {
+        "id": "117701281630",
+        "name": "Tecnología 3",
+        "section": "Primaria",
+        "descriptionHeading": "3° de Primaria RDS Informática",
+        "description": "Ciclo: 2020 -2021",
+        "ownerId": "107680825946786896058",
+        "creationTime": "2020-07-17T19:51:58.789Z",
+        "updateTime": "2020-09-25T14:56:09.229Z",
+        "courseState": "ACTIVE",
+        "alternateLink": "https://classroom.google.com/c/MTE3NzAxMjgxNjMw",
+        "teacherGroupEmail": "3_de_Primaria_RDS_Inform_tica_profesores_ad0f39b8@rafaeldiazserdan.net",
+        "courseGroupEmail": "3_de_Primaria_RDS_Inform_tica_e18f5b78@rafaeldiazserdan.net",
+        "teacherFolder": {
+          "id": "0B65JsX_92iXRfkdTc2FlY3VnS0FsWXFNbVBCbC1NTW40Wnh0cFhLNjNlcC1GNXFxc0p3U0E"
+        },
+        "guardiansEnabled": false,
+        "calendarId": "rafaeldiazserdan.net_classroom90b0272c@group.calendar.google.com"
+      },
+      "-MIYNKAuSe-_7kTmvxfs": {
+        "id": "117701281617",
+        "name": "Tecnología 2",
+        "section": "Primaria",
+        "descriptionHeading": "2° de Primaria",
+        "description": "Ciclo: 2020 -2021",
+        "ownerId": "107680825946786896058",
+        "creationTime": "2020-07-17T19:50:17.167Z",
+        "updateTime": "2020-09-23T17:18:54.854Z",
+        "enrollmentCode": "qdngc7q",
+        "courseState": "ACTIVE",
+        "alternateLink": "https://classroom.google.com/c/MTE3NzAxMjgxNjE3",
+        "teacherGroupEmail": "2_de_Primaria_profesores_341a5f3b@rafaeldiazserdan.net",
+        "courseGroupEmail": "2_de_Primaria_bff3c3f1@rafaeldiazserdan.net",
+        "teacherFolder": {
+          "id": "0B65JsX_92iXRfnRyLU9Cc21WdGlDVlpYeWZ5R2d6X3ZiSWtESnJSeWJNVk9uUFQwNDk3ZE0"
+        },
+        "guardiansEnabled": false,
+        "calendarId": "rafaeldiazserdan.net_classroom6e46430a@group.calendar.google.com"
+      },
+      "-MIYNKzPC4b2Lk_KDs_J": {
+        "id": "117701281561",
+        "name": "Tecnología 1",
+        "section": "Primaria",
+        "descriptionHeading": "1° de Primaria RDS Tecnología",
+        "description": "Ciclo: 2020 -2021",
+        "ownerId": "107680825946786896058",
+        "creationTime": "2020-07-17T19:46:15.639Z",
+        "updateTime": "2020-09-24T18:17:43.427Z",
+        "enrollmentCode": "26x5ek6",
+        "courseState": "ACTIVE",
+        "alternateLink": "https://classroom.google.com/c/MTE3NzAxMjgxNTYx",
+        "teacherGroupEmail": "1_de_Primaria_RDS_Tecnolog_a_profesores_4c58e2f6@rafaeldiazserdan.net",
+        "courseGroupEmail": "1_de_Primaria_RDS_Tecnolog_a_62493233@rafaeldiazserdan.net",
+        "teacherFolder": {
+          "id": "0B65JsX_92iXRflZGbmdtVFhNOU9WWUIyNzJ0T2ZUbmEzUURWV0h3Qm1feEV3UGxNV2JwVkk"
+        },
+        "guardiansEnabled": true,
+        "calendarId": "rafaeldiazserdan.net_classroomdb7fef8c@group.calendar.google.com"
+      },
+      "-MIYNLKXDzCdrOh2IvGo": {
+        "id": "117686036750",
+        "name": "Tecnología 3",
+        "section": "Secundaria",
+        "descriptionHeading": "3° de Secundaria",
+        "description": "Ciclo: 2020 -2021",
+        "ownerId": "107680825946786896058",
+        "creationTime": "2020-07-17T16:33:08.714Z",
+        "updateTime": "2020-09-28T13:56:22.592Z",
+        "enrollmentCode": "cwutpor",
+        "courseState": "ACTIVE",
+        "alternateLink": "https://classroom.google.com/c/MTE3Njg2MDM2NzUw",
+        "teacherGroupEmail": "3_de_Secundaria_profesores_1d3033ec@rafaeldiazserdan.net",
+        "courseGroupEmail": "3_de_Secundaria_24a5ff46@rafaeldiazserdan.net",
+        "teacherFolder": {
+          "id": "0B65JsX_92iXRfnFkR0ZlZi1vRlZkbEVSNVp0RE1Ubzg2SnhMaHZIQ1o4S1NSS2tqR0FfRGs"
+        },
+        "guardiansEnabled": false,
+        "calendarId": "rafaeldiazserdan.net_classroom9c1419ac@group.calendar.google.com"
+      },
+      "-MIYNLnauAjMPCLMpyii": {
+        "id": "117685671520",
+        "name": "Tecnología 2",
+        "section": "Secundaria",
+        "descriptionHeading": "2° de Secundaria",
+        "description": "Ciclo: 2020 -2021",
+        "ownerId": "107680825946786896058",
+        "creationTime": "2020-07-17T16:27:48.184Z",
+        "updateTime": "2020-09-30T17:11:21.335Z",
+        "courseState": "ACTIVE",
+        "alternateLink": "https://classroom.google.com/c/MTE3Njg1NjcxNTIw",
+        "teacherGroupEmail": "2_de_Secundaria_profesores_b9dd366d@rafaeldiazserdan.net",
+        "courseGroupEmail": "2_de_Secundaria_93826459@rafaeldiazserdan.net",
+        "teacherFolder": {
+          "id": "0B65JsX_92iXRfjZtOHhzVGpDaWhTdzI5QVdhZnRqc1FsMFFGNGlIaVhoT2s5MGJfUEVqM28"
+        },
+        "guardiansEnabled": true,
+        "calendarId": "rafaeldiazserdan.net_classroom57643868@group.calendar.google.com"
+      }
+    }
+  },
+  "items": {
+    "2NSf2LvynMeGCzkwsq3mdoQcQHJ3": {
+      "-MIAEVgiYlTCn7Dw2cQw": {
+        "dateCreated": "2020-09-26T16:27:55.037Z",
+        "dateModified": "2020-09-27T21:24:17.947Z",
+        "isActive": false,
+        "itemName": "Julio César",
+        "key": "-MIAEVgiYlTCn7Dw2cQw"
+      },
+      "-MID4KdI6GVcCnYrCD26": {
+        "dateCreated": "2020-09-27T05:42:20.019Z",
+        "dateModified": "2020-09-27T16:03:48.520Z",
+        "isActive": true,
+        "itemName": "Melchor Pinto",
+        "key": "-MID4KdI6GVcCnYrCD26"
+      },
+      "-MIFIY14c34xmuh35v0L": {
+        "dateCreated": "2020-09-27T16:03:39.297Z",
+        "dateModified": "2020-09-27T16:03:48.863Z",
+        "isActive": true,
+        "itemName": "7/30/2020",
+        "key": "-MIFIY14c34xmuh35v0L"
+      }
+    },
+    "Cf8k8JyO3FWCITRL7IPTzG3kWdo2": {
+      "-MIOpQJq6jjFBzxRaeiK": {
+        "dateCreated": "2020-09-29T12:28:15.597Z",
+        "dateModified": "2020-09-29T12:28:19.077Z",
+        "isActive": true,
+        "itemName": "fch",
+        "key": "-MIOpQJq6jjFBzxRaeiK"
+      }
+    },
+    "W8DyZt3t3GXqdV3lEmbiIYD9TvN2": {
+      "-MI94XGrg0XN7QRKOWO2": {
+        "dateCreated": "2020-09-26T11:04:42.878Z",
+        "dateModified": "2020-09-28T03:09:19.557Z",
+        "isActive": true,
+        "itemName": "Julio",
+        "key": "-MI94XGrg0XN7QRKOWO2"
+      },
+      "-MI95-CqdViTmMMI7nHT": {
+        "dateCreated": "2020-09-26T11:06:45.500Z",
+        "dateModified": "2020-09-28T03:09:10.928Z",
+        "isActive": true,
+        "itemName": "Item 2",
+        "key": "-MI95-CqdViTmMMI7nHT"
+      },
+      "-MI95fXhbwlvV1aQd5_1": {
+        "dateCreated": "2020-09-26T11:09:42.961Z",
+        "dateModified": "2020-09-26T11:15:54.564Z",
+        "isActive": true,
+        "itemName": "Julio",
+        "key": "-MI95fXhbwlvV1aQd5_1"
+      },
+      "-MIHg4jhKROfwzHuUx5j": {
+        "dateCreated": "2020-09-28T03:10:07.383Z",
+        "dateModified": "2020-09-28T03:10:12.417Z",
+        "isActive": true,
+        "itemName": "Soporte Técnico",
+        "key": "-MIHg4jhKROfwzHuUx5j"
+      }
+    },
+    "WvnNDGbsAqNoGzgZN5ThWynMVPd2": {
+      "-MIFLHJWW82h4mVqssq6": {
+        "dateCreated": "2020-09-27T16:15:37.224Z",
+        "dateModified": "2020-09-29T11:36:54.951Z",
+        "isActive": false,
+        "itemName": "Julio",
+        "key": "-MIFLHJWW82h4mVqssq6"
+      },
+      "-MIFLKfPoreoVt2fkYCW": {
+        "dateCreated": "2020-09-27T16:15:50.999Z",
+        "dateModified": "2020-09-29T22:22:15.201Z",
+        "isActive": false,
+        "itemName": "Item 1",
+        "key": "-MIFLKfPoreoVt2fkYCW"
+      },
+      "-MIFLMfXNonb01yKchJN": {
+        "dateCreated": "2020-09-27T16:15:59.199Z",
+        "dateModified": "2020-09-27T16:16:02.447Z",
+        "isActive": true,
+        "itemName": "Item 2",
+        "key": "-MIFLMfXNonb01yKchJN"
+      }
+    }
+  },
+  "users": {
+    "2NSf2LvynMeGCzkwsq3mdoQcQHJ3": {
+      "displayName": "Julio César Melchor Pinto",
+      "email": "jcmelchorp@gmail.com",
+      "isAdmin": true,
+      "isNewUser": true,
+      "isOnline": true,
+      "photoUrl": "https://lh3.googleusercontent.com/a-/AOh14GimsjNe4Dv6H7_PDkp7rwYt8_v3ezM0s4G62Kl5",
+      "providerId": "google.com",
+      "uid": "2NSf2LvynMeGCzkwsq3mdoQcQHJ3"
+    },
+    "AmUqijPNgLfziACCgvFVpIHH5fM2": {
+      "displayName": "Alumno de la Escuela",
+      "email": "alumno@rafaeldiazserdan.net",
+      "isNewUser": true,
+      "isOnline": false,
+      "photoUrl": "https://lh3.googleusercontent.com/a-/AOh14GhACPLpfp7F2M4S2AKJtVfGV86BDYHj-qHfrkYw3ofGVFvKpIaGisoBjDy8YPBLMG73c-rHKm4Y5cm8Ar5kjWryfqs-XDpOYY06Ontq-4qmuUAz7zZtGoks0ZtBUyuTlIgNO9wiAIs99NvAX5CAxjUJrETzZcm1ybETDzOcpcTOZm6YZ1dEJTgoRnzXf60YZVYdjejqiVI4aqamZ02RdvX-bWpu9T3MgU15PCzAZ5Muj7bO2b2LSlVtvRHcEzVwOAoI3OzK_WLRPIdOqMoGpRVVyrkoM261ogfH7e6wUy3FcZP9nTTNZILK_Kh1ybDC4_F7EUJTMgvK6C5biYESgPa_LMn-_L4Kwn6BCX-bQKUM7WB9_9dxTCUhKtpy_ShVXPZnfS0-i6eM-CYX5STPlF5HNdl8DN8Bc1F1BUwnhDD5NtS0AqpSQcncZ-0L1l-CRWMzkfPICtl9e8DWpAyVGTwcPhzXcAInhj45QzAbTDB2NEnbjfDBYnqeEX21c07ADU4_b6C_ELxTG5snjzt1jngkv8BXtt3uKx5PYNxmBBoSOcD-1FEnl_yTd3wfI7JLt3CowOnXJkilk-bKaVL7b_4eMHzvvRuMvES2q7guPsNCdxqMyQOteLvqnwmCtzCstb2hxJuk1ejyhztMB-Wz_5ymEQXupXJ2IYZPrzDe87cakNk60wtoJIBRywsbUflwkO0NgjmMkoftB1uPG1EZXyta_7CzBn78TEyzm2tYGsjoR2k7b9rbhzutZrLYqxzpQDYmSg",
+      "providerId": "google.com",
+      "uid": "AmUqijPNgLfziACCgvFVpIHH5fM2"
+    },
+    "Cf8k8JyO3FWCITRL7IPTzG3kWdo2": {
+      "displayName": "Julio César Melchor Pinto",
+      "email": "julio.cesar.melchor.pinto@gmail.com",
+      "isNewUser": true,
+      "isOnline": false,
+      "photoUrl": "https://lh3.googleusercontent.com/a-/AOh14GiA-NXod74Szg0tX6_0rzLrfzOYGT-rzFKuTmmi=s96-c",
+      "providerId": "google.com",
+      "uid": "Cf8k8JyO3FWCITRL7IPTzG3kWdo2"
+    },
+    "ViwMO4HZuNNvWzUPtPZm6uYtnPW2": {
+      "displayName": "Julio César Melchor Pinto",
+      "email": "jcmelchorp@ciencias.unam.mx",
+      "isNewUser": true,
+      "isOnline": false,
+      "photoUrl": "https://lh3.googleusercontent.com/a-/AOh14Gg8auihS-shnoiDLVtj-cNfMOk_kmSZylv5ds7qDQ=s96-c",
+      "providerId": "google.com",
+      "uid": "ViwMO4HZuNNvWzUPtPZm6uYtnPW2"
+    },
+    "W8DyZt3t3GXqdV3lEmbiIYD9TvN2": {
+      "displayName": "Soporte técnico y asistencia Escuela Rafael Díaz Serdán",
+      "email": "soporte.tecnico@rds.edu.mx",
+      "isAdmin": true,
+      "isNewUser": true,
+      "isOnline": false,
+      "photoUrl": "https://lh3.googleusercontent.com/a-/AOh14Ghs-qIUfWuLKsrK-piQqjaMnNpaCscw6sR7y2qx4fiNhtFg24UF2UDnSqgRqyS932T6yM8mOwTScYNfFy5Lmg3tqtXxs1u4--e0wfS7wL5g-ex6EQ-U1_aANjEmbgOy8UREYt-m0Z35cMTsfIPE457HPCE9fOeanR2Awtne8G01gDmz2Vs081PFlCTrwsExs5pGLiUOsDxOzcK8czyI1p8vxEbBuR3H1P4NyDTcspBbiZVihxXDY8dbozU2GoA0saYw6jmAfn7eheh8qmeVNiQIX7AWNGSsRJVqQZj6JYBX4bfXA52t1xh3HOqHnBI707fjPySWU7GahyaJhihKmA6NDbDgemyHG70obS53_Kiql6Nf8Brt3JGDKLfg1XSOGuzWZ4JVdwKKfN7JaepDSj1ty6UDRZsTOBBVfCMItkpITxWZlx_n1MbQygTGFddBTqkd6wvljkwBDFXJEivvUnrVF6gfmGTJRexVwfUbHhpx8tm2YvTioCnCx_AVK0V9IirGBxibplsQxOUQCZVYj-f7MgJguWRBf70eq7OnSx9huGS02MOEekSN1i8DiWnt55qZTiV_GeuCQKU635QSrcb1RqXprhOc9FYLpveg_P7iZJVMXgdp5q2CyoQQTUUmLXV8TigxFlVrKNp5BajZ9sl6UHJUr5XNcXh1TnxbsaeU6x7ugUCl2bH1Wax9F9w7rGM8iDM4uejGehcKhQJAV6_ZcDMDkwa4h2zSlVBW5nvBBtxpb8dgxQEG-B5VBU-fQH_xeg",
+      "providerId": "google.com",
+      "uid": "W8DyZt3t3GXqdV3lEmbiIYD9TvN2"
+    },
+    "WvnNDGbsAqNoGzgZN5ThWynMVPd2": {
+      "displayName": "Julio César Melchor Pinto",
+      "email": "julio.melchor@rafaeldiazserdan.net",
+      "isNewUser": true,
+      "isOnline": false,
+      "photoUrl": "https://lh3.googleusercontent.com/a-/AOh14GgsrtAyP8ZR06nlDNXFYzSTQd_hSz0eCIvHU867oEPzC-ExqNOpLRsKg6OLImp2FL1-h0a2RCCudSu-hh8fO2-KL6tSUxMaJT9PQUWyKD4nlZW7j8IP1D4Sk2xwq680cvjshUs_NFbn6oxeWrshZtoACZZTTfemonNYejQp4H8nBbEacZTpJkzLCyPFaIkei_-yT7idin3F-AQN_C_7y_8PXWmwxNccBpTEHM6qjM0IvFD8BN_rOLqj9szZwCOOsrMKu8DqVfCa1Ats9xwBMTOHbN3namu7j-OonGxHnyULq4rIkXsa8asf99PzVZWq501k8GgP7y_kaJKbNClUVXMfIIQCAObpqETug4BlyEByROk_S-iU_gn5C_kVkcXCl-EsP9jXZBjO4_3O57xU55swa0JaIMR0hycT9tx6xw6o_Y2c3-9B6vM7QqRvAlWeqBSxIbkZa6X1CTn1qa_gB0vHCwr4OgEf90AQMO-idhRW6nt1xouLnoL9CiYXdjIkkzmQwwWrIxPMTz03Shta5OMMDWEiOXPjUX1l-dPOri32nhetl3T7qRYmWxIUh6Jk93OTUuWW8rSaCk-FyF1s82qo_Po1ZWji3O8znPVQ7tkbN_eAkNITMhzEzCqFJWhf1l2-eOoeFsJfSj-QcVvS6Wqcmo7WJMIu6IF740Jh-jbICUxECyobN70JJ9jPVhy52OBD4iU15da6y9jh0Lv9PA-K2kw20ltct7deaq_EsiW0hzB4edHquDgSbjGFQMegCrbNdw",
+      "providerId": "google.com",
+      "uid": "WvnNDGbsAqNoGzgZN5ThWynMVPd2"
+    }
+  }
+}
