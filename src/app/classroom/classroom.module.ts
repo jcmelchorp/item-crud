@@ -1,3 +1,4 @@
+import { CourseDbService } from './services/course-db.service';
 import { CourseEffect } from './store/course.effects';
 import { CoursesComponent } from './components/courses/courses.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -13,9 +14,16 @@ import { StoreModule } from '@ngrx/store';
 import * as fromCourse from './store/course.reducer';
 import { CoursesListComponent } from './components/courses-list/courses-list.component';
 import { CourseComponent } from './components/course/course.component';
+import { CourseTableComponent } from './components/course-table/course-table.component';
 
 @NgModule({
-  declarations: [ClassroomShellComponent, CoursesComponent, CoursesListComponent, CourseComponent],
+  declarations: [
+    ClassroomShellComponent,
+    CoursesComponent,
+    CoursesListComponent,
+    CourseComponent,
+    CourseTableComponent,
+  ],
   imports: [
     CommonModule,
     ClassroomRoutingModule,
@@ -26,6 +34,6 @@ import { CourseComponent } from './components/course/course.component';
     EffectsModule.forFeature([CourseEffect]),
   ],
   exports: [CoursesComponent],
-  providers: [],
+  providers: [CourseDbService],
 })
 export class ClassroomModule {}

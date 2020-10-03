@@ -1,22 +1,26 @@
 import { Course } from './../../classroom/models/course.model';
-import { mergeMap, switchMap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Injectable } from '@angular/core';
-import { from, Observable } from 'rxjs';
+import { from, Observable, of } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app';
-declare var gapi: any;
+declare var gapi;
 @Injectable({
   providedIn: 'root',
 })
 export class GoogleApiService {
   user$: Observable<firebase.User>;
-  courses: Observable<void>;
+  courses: Course[];
   calendarItems: any[];
   constructor(public afAuth: AngularFireAuth) {
+    this.afAuth.authState.subscribe((user) => {
+      if (user) {
+        this.user$ = afAuth.authState;
+      }
+    });
     this.initClient();
-    this.user$ = afAuth.authState;
   }
+
   initClient() {
     gapi.load('client', () => {
       console.log('loaded client');
@@ -35,7 +39,7 @@ export class GoogleApiService {
     const googleUser = await googleAuth.signIn();
     const token = googleUser.getAuthResponse().id_token;
     const credential = auth.GoogleAuthProvider.credential(token);
-    return await this.afAuth.signInWithCredential(credential);
+    await this.afAuth.signInWithCredential(credential);
   }
 
   logout(): void {
@@ -45,27 +49,45 @@ export class GoogleApiService {
   /**
    * Lists all course names and ids.
    */
-  async listCourses() {
-    const courses = await gapi.client.classroom.courses.list({});
-    /*     if (courses.length === 0) {
-      console.log('No courses found.');
-    } else { */
-    this.courses = courses.result.courses;
-    //const courseId = '117685671520';.courses;9
-
-    const courseData = courses.result.courses.map((course: Course) => {
-      const ownerName = gapi.client.classroom.courses.teachers.get(
-        course.id,
-        course.ownerId
-      ).profile.name.fullName;
-      const data = `${course.name} : ${course.id} : ${ownerName}`;
-      console.log(data);
-      return data;
-    });
-    return courseData;
-    // }
+  listCourses(): Course[] {
+    let courseList: Course[];
+    courseList = gapi.client.classroom.courses
+      .list({
+        pageSize: 10,
+      })
+      .then((response) => {
+        return response.result.courses;
+      });
+    return courseList;
   }
 
+  /* async listCourses() {
+    const courses = gapi.client.classroom.courses.list();
+    if (courses.length === 0) {
+      console.log('No courses found.');
+    } else {
+      this.courses = courses.result.courses;
+
+      const courseData = courses.result.courses.map((course: Course) => {
+        const ownerName = gapi.client.classroom.courses.teachers.get(
+          course.id,
+          course.ownerId
+        ).profile.name.fullName;
+        const data = `${course.name} : ${course.id} : ${ownerName}`;
+        console.log(data);
+        return data;
+      });
+      return courseData;
+    }
+  } */
+  /* listCourses(callback, dispatch) {
+    gapi.client.classroom.courses
+      .list({ teacherId: gapi.auth2.getAuthInstance().currentUser.get()['El'] })
+      .then((response) => {
+        dispatch(callback(response.result.courses));
+      });
+  }
+ */
   async getCalendar() {
     const events = await gapi.client.calendar.events.list({
       calendarId: 'primary',

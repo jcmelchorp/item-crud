@@ -1,7 +1,7 @@
-<div class="" fxLayoutAlign="center center">
-  <mat-spinner *ngIf="loading$"></mat-spinner>
+<div *ngIf="!loading$" fxLayoutAlign="center center">
+  <mat-spinner></mat-spinner>
 </div>
-<div *ngIf="!loading$">
+<div *ngIf="loading$">
   <div class="px-5 py-3">
     <p class="display-4">Items</p>
   </div>
@@ -12,6 +12,8 @@
     <app-item-list [items]="items$ | async">
     </app-item-list>
   </div>
-  <div class="p-5"></div>
+  <div class="p-5">
+
+  </div>
 
 </div>

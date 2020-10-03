@@ -25,7 +25,7 @@ import { map } from 'rxjs/operators';
 export class SaveItemComponent implements OnInit {
   itemForm: FormGroup;
   @Input() item: Item;
-  items$: Observable<Item[] | null>;
+  //items$: Observable<Item[] | null>;
   destroy$: Subject<boolean> = new Subject<boolean>();
   constructor(
     private formBuilder: FormBuilder,
@@ -36,7 +36,8 @@ export class SaveItemComponent implements OnInit {
 
   ngOnInit(): void {
     this.initializeForm();
-    this.items$ = this.store.pipe(
+
+    /* this.items$ = this.store.pipe(
       select(getItems),
       map((items: Item[]) => {
         if (this.user && !items) {
@@ -44,7 +45,7 @@ export class SaveItemComponent implements OnInit {
         }
         return items;
       })
-    );
+    ); */
   }
   get user(): Promise<firebase.User> {
     return this.afAuth.currentUser;

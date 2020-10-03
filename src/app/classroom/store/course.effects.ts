@@ -62,7 +62,7 @@ export class CourseEffect {
     })
   );
 
-  @Effect({ dispatch: false })
+  @Effect()
   added$ = this.actions$.pipe(
     ofType(fromCourses.CourseActionTypes.COURSE_ADDED),
     map((action: fromCourses.CourseAdded) => action.payload),
@@ -72,7 +72,7 @@ export class CourseEffect {
     )
   );
 
-  @Effect({ dispatch: false })
+  @Effect()
   delete$ = this.actions$.pipe(
     ofType(fromCourses.CourseActionTypes.COURSE_DELETED),
     map((action: fromCourses.CourseDeleted) => action.payload),
@@ -82,7 +82,7 @@ export class CourseEffect {
     )
   );
 
-  @Effect({ dispatch: false })
+  @Effect()
   edit$ = this.actions$.pipe(
     ofType(fromCourses.CourseActionTypes.COURSE_EDITED),
     map((action: fromCourses.CourseEdited) => action.payload),

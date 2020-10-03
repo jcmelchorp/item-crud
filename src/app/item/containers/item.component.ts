@@ -31,7 +31,7 @@ export class ItemComponent implements OnInit, OnDestroy {
     private afAuth: AngularFireAuth
   ) {}
   ngOnInit(): void {
-    //this.loading$ = this.store.select(getAllLoaded);
+    this.loading$ = this.store.select(getAllLoaded);
     this.items$ = this.store.pipe(
       select(getItems),
       map((items: Item[]) => {

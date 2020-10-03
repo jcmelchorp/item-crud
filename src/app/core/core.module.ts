@@ -16,11 +16,6 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { WellcomeComponent } from './components/wellcome/wellcome.component';
 import { AboutComponent } from './components/about/about.component';
-import { MatGridListModule } from '@angular/material/grid-list';
-import { MatCardModule } from '@angular/material/card';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from '@angular/cdk/layout';
 
 @NgModule({
@@ -44,11 +39,6 @@ import { LayoutModule } from '@angular/cdk/layout';
     MaterialModule,
     FlexLayoutModule,
     FontAwesomeModule,
-    MatGridListModule,
-    MatCardModule,
-    MatMenuModule,
-    MatIconModule,
-    MatButtonModule,
     LayoutModule,
   ],
   exports: [

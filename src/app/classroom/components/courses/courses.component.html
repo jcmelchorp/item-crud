@@ -5,16 +5,19 @@
     </p>
   </div>
 </div>
-<div class="" fxLayoutAlign="center center">
-  <mat-spinner *ngIf="!loaded$"></mat-spinner>
+<div fxLayoutAlign="center center">
+  <mat-spinner *ngIf="(loading$ | async)"></mat-spinner> <!-- && (!loading$|async)-->
 </div>
 
-<div *ngIf="loaded$" class="px-3" fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="10px"
+<div *ngIf="!(loading$ | async)" class="px-3" fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="10px"
   fxLayoutAlign="flex-start">
   <div fxFlex="0 1 calc(50% - 10px)" fxFlex.lt-md="100%">
+
+    <app-course-table [courses]="courses$ | async"></app-course-table>
+    <!--
     Clases @NGRX
     <app-courses-list [courses]="courses$ | async" (courseDeleted)="onCourseDelete($event)"
-      (courseEdited)="onCourseEdit($event)"></app-courses-list>
+      (courseEdited)="onCourseEdit($event)"></app-courses-list> -->
 
   </div>
   <div fxFlex="0 1 calc(50% - 10px)" fxFlex.lt-md="100%">
@@ -24,8 +27,8 @@
 
     <mat-card [class.mat-elevation-z6]="false" *ngFor="let item of googleApiService.courses">
       <mat-card-header>
-        <mat-card-title></mat-card-title>
-        <mat-card-subtitle></mat-card-subtitle>
+        <mat-card-title>{{item.name}}</mat-card-title>
+        <mat-card-subtitle>{{item.description}}</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
         <!--  <button mat-raised-button color="warn" (click)="googleApiService.getCalendar()">Calendar</button>
@@ -51,3 +54,4 @@
     </div>
   </div> -->
 </div>
+}

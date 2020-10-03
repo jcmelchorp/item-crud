@@ -30,9 +30,11 @@ export class CourseDbService {
   }
   addCourses(courses: Course[]): void {
     const uid = this.userId;
-    courses.forEach((course: Course) => {
-      this.db.list(`courses/${uid}`).push(course);
-    });
+    if (!courses) {
+      courses.forEach((course: Course) => {
+        this.db.list(`courses/${uid}`).push(course);
+      });
+    }
   }
   getAll(uid: string) {
     return this.db.list<Course>(`courses/${uid}`).snapshotChanges();

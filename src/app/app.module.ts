@@ -1,3 +1,4 @@
+import { AuthService } from './auth/services/auth.service';
 import { BoardService } from './board/services/board.service';
 import { AdminModule } from './admin/admin.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -53,7 +54,7 @@ import { ItemService } from './item/services/item.service';
     }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],
-  providers: [ItemService, BoardService, AuthModule],
+  providers: [ItemService, BoardService, AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

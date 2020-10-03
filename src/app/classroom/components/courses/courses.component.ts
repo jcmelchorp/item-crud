@@ -15,7 +15,6 @@ import { AppState } from 'src/app/reducers';
 import { Course } from '../../models/course.model';
 import { getAllLoaded, getCourse } from '../../store/course.selectors';
 import * as courseActions from '../../store/course.actions';
-import { CourseGapiService } from '../../services/course-gapi.service';
 import { getUser } from 'src/app/auth/store/auth.selectors';
 
 @Component({
@@ -32,7 +31,7 @@ export class CoursesComponent implements OnInit, OnDestroy {
   world = faGlobeAmericas;
   courses$: Observable<Course[]>;
   error$: Observable<string>;
-  loaded$: Observable<boolean>;
+  loading$: Observable<boolean>;
   constructor(
     private store: Store<AppState>,
     public googleApiService: GoogleApiService,
@@ -40,9 +39,8 @@ export class CoursesComponent implements OnInit, OnDestroy {
     private courseService: CourseDbService
   ) {}
 
-  fetchCourses() {}
-  ngOnInit(): void {
-    this.loaded$ = this.store.select(getAllLoaded);
+  ngOnInit() {
+    this.loading$ = this.store.select(getAllLoaded);
     this.courses$ = this.store.pipe(
       select(getCourse),
       map((courses: Course[]) => {
@@ -57,7 +55,7 @@ export class CoursesComponent implements OnInit, OnDestroy {
   get user() {
     return this.afAuth.currentUser;
   }
-  ngOnDestroy(): void {
+  async ngOnDestroy() {
     this.destroy$.next(true);
     // Unsubscribe from the subject
     this.destroy$.unsubscribe();
@@ -73,7 +71,7 @@ export class CoursesComponent implements OnInit, OnDestroy {
   }
 
   openEditCourseModal(course: Course) {
-    this.modalRef = this.modalService.show(CourseModalComponent, this.modalConfig);
+    this.modalRef = this.modalService.show(CourseMo[dataSource]="courses"alComponent, this.modalConfig);
 
     this.modalRef.content.heading = 'Edit course';
     const courseCopy = {...course };
